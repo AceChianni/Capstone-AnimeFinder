@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Recommendation Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="recs.html">Recommendations</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <div class="container">
+        <h1>Anime Recommendation Quiz</h1>
+        <form id="quizForm">
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1. What type of TV shows or movies do you enjoy the most?</p>
+                <label>
+                    <input type="radio" name="question1" value="Drama">
+                    Drama
+                </label>
+                <label>
+                    <input type="radio" name="question1" value="Comedy">
+                    Comedy
+                </label>
+                <label>
+                    <input type="radio" name="question1" value="Action">
+                    Action
+                </label>
+                <label>
+                    <input type="radio" name="question1" value="Fantasy">
+                    Fantasy
+                </label>
+                <label>
+                    <input type="radio" name="question1" value="Science Fiction">
+                    Science Fiction
+                </label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <p>2. Which type of characters do you prefer?</p>
+                <label>
+                    <input type="radio" name="question2" value="Serious and deep">
+                    Serious and deep
+                </label>
+                <label>
+                    <input type="radio" name="question2" value="Funny and quirky">
+                    Funny and quirky
+                </label>
+                <label>
+                    <input type="radio" name="question2" value="Brave and adventurous">
+                    Brave and adventurous
+                </label>
+                <label>
+                    <input type="radio" name="question2" value="Magical and mystical">
+                    Magical and mystical
+                </label>
+                <label>
+                    <input type="radio" name="question2" value="Intelligent and innovative">
+                    Intelligent and innovative
+                </label>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <p>3. What kind of storyline do you find most intriguing?</p>
+                <label>
+                    <input type="radio" name="question3" value="Emotionally gripping">
+                    Emotionally gripping
+                </label>
+                <label>
+                    <input type="radio" name="question3" value="Light-hearted and humorous">
+                    Light-hearted and humorous
+                </label>
+                <label>
+                    <input type="radio" name="question3" value="Full of thrilling battles">
+                    Full of thrilling battles
+                </label>
+                <label>
+                    <input type="radio" name="question3" value="Involving supernatural elements">
+                    Involving supernatural elements
+                </label>
+                <label>
+                    <input type="radio" name="question3" value="Exploring futuristic concepts">
+                    Exploring futuristic concepts
+                </label>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <p>4. Which setting or environment do you prefer in a TV show or movie?</p>
+                <label>
+                    <input type="radio" name="question4" value="Urban cityscape">
+                    Urban cityscape
+                </label>
+                <label>
+                    <input type="radio" name="question4" value="Rural countryside">
+                    Rural countryside
+                </label>
+                <label>
+                    <input type="radio" name="question4" value="Fantasy world">
+                    Fantasy world
+                </label>
+                <label>
+                    <input type="radio" name="question4" value="Outer space">
+                    Outer space
+                </label>
+                <label>
+                    <input type="radio" name="question4" value="Historical era">
+                    Historical era
+                </label>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <p>5. What is your preferred tone or atmosphere in a TV show or movie?</p>
+                <label>
+                    <input type="radio" name="question5" value="Serious and intense">
+                    Serious and intense
+                </label>
+                <label>
+                    <input type="radio" name="question5" value="Light-hearted and fun">
+                    Light-hearted and fun
+                </label>
+                <label>
+                    <input type="radio" name="question5" value="Mysterious and suspenseful">
+                    Mysterious and suspenseful
+                </label>
+                <label>
+                    <input type="radio" name="question5" value="Whimsical and magical">
+                    Whimsical and magical
+                </label>
+                <label>
+                    <input type="radio" name="question5" value="Futuristic and innovative">
+                    Futuristic and innovative
+                </label>
+            </div>
+
+            <button type="button" onclick="submitQuiz()">Submit</button>
+        </form>
+
+        <div id="recommendationContainer" style="display: none;">
+            <!-- Recommended anime will be displayed here -->
+        </div>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
