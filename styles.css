@@ -54,12 +54,10 @@ body, html {
 /* Slideshow Controls */
 .controls {
     position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
 
 .controls button {
