@@ -30,6 +30,55 @@ body, html {
     color: #ddd;
 }
 
+/* Description Section */
+.description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Sidebars */
+.sidebar {
+    background-color: #ffc04d; /* Light orange */
+    color: #1a237e; /* Dark blue text */
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* Sidebar Heading (h2) */
+.sidebar h2 {
+    font-family: 'Comic Sans MS', cursive; /* Comic Sans font */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Poll Form Styles */
+#animePoll {
+    margin-top: 10px;
+}
+
+#animePoll label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#animePoll input[type="text"] {
+    width: 150px;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+#animePoll button {
+    padding: 8px 15px;
+    background-color: #1a237e; /* Dark blue */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#animePoll button:hover {
+    background-color: #0d47a1; /* Darker blue on hover */
+}
+
 /* Anime Slider */
 .anime-slider {
     margin-top: 60px; /* Adjust according to navbar height */
