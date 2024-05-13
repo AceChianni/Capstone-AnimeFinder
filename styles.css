@@ -2,113 +2,123 @@
 body, html {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 /* Navigation Bar */
 .navbar {
     background-color: #333;
     color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    padding: 10px 20px;
 }
 
-/* Description Section */
-.description {
-    text-align: center;
-    padding: 100px 20px 20px; /* Adjust padding top to account for navbar height */
+.navbar nav {
+    display: flex;
+    justify-content: center;
 }
 
-/* Main Content Container */
-.content-container {
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Main Content Area */
+.main-content {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    margin-top: 160px; /* Adjust based on navbar height and padding of description */
 }
 
-/* Sidebar Styles */
+/* Sidebar - Anime History Links */
 .sidebar {
-    background-color: #ffc04d; /* Light orange */
-    color: #1a237e; /* Dark blue text */
+    width: 250px;
+    background-color: #ffc04d;
     padding: 15px;
-    width: 200px; /* Adjust sidebar width */
-    position: fixed;
-    top: 160px; /* Adjust based on navbar height and padding of description */
-    overflow-y: auto;
 }
 
-.sidebar-left {
-    left: 0;
-}
-
-.sidebar-right {
-    right: 0;
-}
-
-/* Sidebar Heading (h2) */
 .sidebar h2 {
-    font-family: 'Comic Sans MS', cursive; /* Comic Sans font */
-    font-size: 24px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
-/* Anime Gallery Slider */
-.anime-slider {
-    flex: 1; /* Allow slideshow to take remaining space */
-    max-width: calc(100% - 240px); /* Maximum width (minus sidebar width) */
-    margin-left: 220px; /* Adjust based on sidebar width */
-    overflow: hidden; /* Ensure slideshow does not overflow beyond container */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.anime-slider img {
-    width: 100%; /* Ensure images within slideshow are responsive */
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #1a237e;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Content Area - Anime Slideshow and Poll */
+.content {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.anime-slider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.slide {
+    flex: 0 0 calc(33.33% - 10px); /* Adjust width of each slide */
+    margin-bottom: 10px;
+}
+
+.slide img {
+    width: 100%;
     height: auto;
 }
 
-/* Slideshow Controls */
-.controls {
-    text-align: center;
-    margin-top: 20px;
+.poll {
+    background-color: #4de5ff;
+    padding: 15px;
+    width: 250px;
 }
 
-.controls button {
-    padding: 10px 20px;
-    font-size: 16px;
+.poll h2 {
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.poll form {
+    margin-top: 10px;
+}
+
+.poll label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.poll input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.poll button {
+    padding: 10px 15px;
     background-color: #333;
     color: white;
     border: none;
     cursor: pointer;
-    margin-right: 5px;
 }
 
-.controls button:hover {
+.poll button:hover {
     background-color: #555;
-}
-
-/* Responsive Layout */
-@media (max-width: 768px) {
-    .content-container {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        position: relative;
-        width: 100%;
-        top: 0;
-        margin-top: 20px;
-    }
-
-    .anime-slider {
-        max-width: 100%; /* Full width for slideshow on smaller screens */
-        margin-left: 0; /* Remove left margin on smaller screens */
-    }
-
-    .sidebar-right {
-        width: 100%; /* Adjust sidebar width for smaller screens */
-        top: 160px; /* Adjust top position based on navbar height and padding of description */
-    }
 }
