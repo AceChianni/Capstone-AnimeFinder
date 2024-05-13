@@ -106,4 +106,9 @@ body, html {
         max-width: 100%; /* Full width for slideshow on smaller screens */
         margin-left: 0; /* Remove left margin on smaller screens */
     }
+
+    .sidebar-right {
+        width: 100%; /* Adjust sidebar width for smaller screens */
+        top: 160px; /* Adjust top position based on navbar height and padding of description */
+    }
 }
