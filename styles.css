@@ -6,7 +6,7 @@ body, html {
     padding: 0;
 }
 
-/* Navbar styling */
+/* old nav styling
 .navbar {
     position: fixed;
     top: 0;
@@ -23,6 +23,73 @@ body, html {
     color: white;
     padding: 10px 20px;
 }
+ */
+
+
+/* Navbar styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000; /* Ensure navbar is above other content */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0 20px;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ddd;
+}
+
+/* Arrow buttons */
+.nav-arrow {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+.nav-arrow:hover {
+    color: #ddd;
+}
+
+/* Anime Slider */
+.anime-slider {
+    margin-top: 60px; /* Adjust according to navbar height */
+    text-align: center;
+}
+
+.slide img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 
 /* Slideshow container */
 .anime-slider {
