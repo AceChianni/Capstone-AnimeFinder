@@ -1,22 +1,40 @@
-// Create nav bar js
 document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelector('.nav-links');
-    const navContainer = document.querySelector('.nav-container');
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    let slideInterval = setInterval(nextSlide, 5000); // Auto-play interval (5 seconds)
 
-    // Scroll navbar using arrow buttons
+    function nextSlide() {
+        goToSlide(currentSlide + 1);
+    }
+
+    function previousSlide() {
+        goToSlide(currentSlide - 1);
+    }
+
+    function goToSlide(n) {
+        slides[currentSlide].style.display = 'none';
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].style.display = 'block';
+    }
+
+    document.querySelector('.play-pause').addEventListener('click', () => {
+        const icon = document.querySelector('.play-pause');
+        if (slideInterval) {
+            clearInterval(slideInterval);
+            slideInterval = null;
+            icon.textContent = '▶️'; // Change icon to play
+        } else {
+            slideInterval = setInterval(nextSlide, 5000); // Restart auto-play
+            icon.textContent = '⏸️'; // Change icon to pause
+        }
+    });
+
     document.querySelector('.nav-arrow.left').addEventListener('click', () => {
-        navContainer.scrollLeft -= 100; // Adjust scroll amount
+        previousSlide();
     });
 
     document.querySelector('.nav-arrow.right').addEventListener('click', () => {
-        navContainer.scrollLeft += 100; // Adjust scroll amount
-    });
-
-    // Show/hide arrow buttons based on scroll position
-    navContainer.addEventListener('scroll', () => {
-        const maxScrollLeft = navLinks.scrollWidth - navLinks.clientWidth;
-        document.querySelector('.nav-arrow.left').style.display = navContainer.scrollLeft > 0 ? 'block' : 'none';
-        document.querySelector('.nav-arrow.right').style.display = navContainer.scrollLeft < maxScrollLeft ? 'block' : 'none';
+        nextSlide();
     });
 });
 
