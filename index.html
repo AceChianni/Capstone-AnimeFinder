@@ -14,69 +14,72 @@
         <a href="recs.html">Recommendations</a>
         <a href="contact.html">Contact Us</a>
     </nav>
-<!-- Description Section -->
+
+    <!-- Description Section -->
     <section class="description">
         <h1>Welcome to Anime Recommendation Website</h1>
         <p>Discover and explore the best anime series for your tastes!</p>
     </section>
 
-    <!-- Sidebar with Poll -->
-    <aside class="sidebar">
-        <h2>Best Starting Anime Poll</h2>
-        <form id="animePoll">
-            <label>
-                <input type="radio" name="anime" value="one-piece"> One Piece
-            </label><br>
-            <label>
-                <input type="radio" name="anime" value="jujutsu-kaisen"> Jujutsu Kaisen
-            </label><br>
-            <label>
-                <input type="radio" name="anime" value="bleach"> Bleach
-            </label><br>
-            <label>
-                <input type="radio" name="anime" value="naruto"> Naruto
-            </label><br>
-            <label>
-                <input type="radio" name="anime" value="demon-slayer"> Demon Slayer
-            </label><br>
-            <label>
-                <input type="radio" name="anime" value="other"> Other:
-                <input type="text" name="otherText" placeholder="Type other anime">
-            </label><br>
-            <button type="submit">Vote</button>
-        </form>
-    </aside>
+    <!-- Main Content Area with Sidebar Layout -->
+    <div class="content-container">
+        <!-- Sidebar - Links to Anime History -->
+        <aside class="sidebar sidebar-left">
+            <h2>Anime History Resources</h2>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/History_of_anime" target="_blank">History of Anime - Wikipedia</a></li>
+                <li><a href="https://www.animefeminist.com/history-of-anime/" target="_blank">A Brief History of Anime - Anime Feminist</a></li>
+                <li><a href="https://www.crunchyroll.com/anime-news/2017/04/23-1/the-history-of-anime" target="_blank">The History of Anime - Crunchyroll</a></li>
+            </ul>
+        </aside>
 
-    <!-- Sidebar with Anime History Links -->
-    <aside class="sidebar">
-        <h2>Anime History Resources</h2>
-        <ul>
-            <li><a href="https://en.wikipedia.org/wiki/History_of_anime" target="_blank">History of Anime - Wikipedia</a></li>
-            <li><a href="https://www.animefeminist.com/history-of-anime/" target="_blank">A Brief History of Anime - Anime Feminist</a></li>
-            <li><a href="https://www.crunchyroll.com/anime-news/2017/04/23-1/the-history-of-anime" target="_blank">The History of Anime - Crunchyroll</a></li>
-        </ul>
-    </aside>
-    <!-- Anime Gallery Slider -->
-    <div class="anime-slider">
-        <div class="slide">
-            <img src="https://via.placeholder.com/800x400?text=Anime+1" alt="Anime 1">
+        <!-- Sidebar - Poll for Best Starting Anime -->
+        <aside class="sidebar sidebar-right">
+            <h2>Best Starting Anime Poll</h2>
+            <form id="animePoll">
+                <label>
+                    <input type="radio" name="anime" value="one-piece"> One Piece
+                </label><br>
+                <label>
+                    <input type="radio" name="anime" value="jujutsu-kaisen"> Jujutsu Kaisen
+                </label><br>
+                <label>
+                    <input type="radio" name="anime" value="bleach"> Bleach
+                </label><br>
+                <label>
+                    <input type="radio" name="anime" value="naruto"> Naruto
+                </label><br>
+                <label>
+                    <input type="radio" name="anime" value="demon-slayer"> Demon Slayer
+                </label><br>
+                <label>
+                    <input type="radio" name="anime" value="other"> Other:
+                    <input type="text" name="otherText" placeholder="Type other anime">
+                </label><br>
+                <button type="submit">Vote</button>
+            </form>
+        </aside>
+
+        <!-- Anime Gallery Slider -->
+        <div class="anime-slider">
+            <div class="slide">
+                <img src="https://via.placeholder.com/800x400?text=Anime+1" alt="Anime 1">
+            </div>
+            <div class="slide">
+                <img src="https://via.placeholder.com/800x400?text=Anime+2" alt="Anime 2">
+            </div>
+            <div class="slide">
+                <img src="https://via.placeholder.com/800x400?text=Anime+3" alt="Anime 3">
+            </div>
         </div>
-        <div class="slide">
-            <img src="https://via.placeholder.com/800x400?text=Anime+2" alt="Anime 2">
-        </div>
-        <div class="slide">
-            <img src="https://via.placeholder.com/800x400?text=Anime+3" alt="Anime 3">
-        </div>
-        <!-- gallery ends -->
     </div>
 
- <!-- Slideshow Controls -->
-<div class="controls">
-    <button id="prevBtn">❮ Prev</button>
-    <button id="pauseBtn">Pause</button>
-    <button id="nextBtn">Next ❯</button>
-</div>
-
+    <!-- Slideshow Controls -->
+    <div class="controls">
+        <button id="prevBtn">❮ Prev</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="nextBtn">Next ❯</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
