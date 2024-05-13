@@ -9,31 +9,38 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="quiz.html">Quiz</a>
-        <a href="recs.html">Recommendations</a>
-        <a href="contact.html">Contact Us</a>
+        <div class="nav-container">
+            <button class="nav-arrow left">&lt;</button>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="recs.html">Recommendations</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <button class="nav-arrow right">&gt;</button>
+        </div>
     </nav>
 
     <!-- Anime Gallery Slider -->
     <div class="anime-slider">
         <div class="slide">
             <img src="https://via.placeholder.com/800x400?text=Anime+1" alt="Anime 1">
+            <div class="slide-overlay">
+                <button class="play-pause">▶️</button>
+            </div>
         </div>
         <div class="slide">
             <img src="https://via.placeholder.com/800x400?text=Anime+2" alt="Anime 2">
+            <div class="slide-overlay">
+                <button class="play-pause">▶️</button>
+            </div>
         </div>
         <div class="slide">
             <img src="https://via.placeholder.com/800x400?text=Anime+3" alt="Anime 3">
+            <div class="slide-overlay">
+                <button class="play-pause">▶️</button>
+            </div>
         </div>
-        <!-- gallery ends -->
-    </div>
-
-    <!-- Slideshow Controls -->
-    <div class="controls">
-        <button onclick="prevSlide()">❮ Prev</button>
-        <button onclick="toggleSlideShow()">Pause</button>
-        <button onclick="nextSlide()">Next ❯</button>
     </div>
 
     <script src="script.js"></script>
