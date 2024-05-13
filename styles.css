@@ -11,7 +11,7 @@ body, html {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: transparent; 
+    background-color: transparent;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -22,13 +22,9 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
     max-width: 100%;
     overflow-x: auto;
-    padding: 0 20px;
-}
-
-.nav-links {
-    display: flex;
 }
 
 .nav-links a {
@@ -59,7 +55,7 @@ body, html {
 
 /* Anime Slider */
 .anime-slider {
-    margin-top: 60px; /* Adjust according to navbar height */
+    margin-top: 60px; 
     height: calc(100vh - 60px); 
     overflow: hidden; /* Hide overflow content */
     position: relative; 
