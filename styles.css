@@ -11,7 +11,7 @@ body, html {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: transparent; /* Set navbar background color to transparent */
+    background-color: transparent; 
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -59,15 +59,19 @@ body, html {
 
 /* Anime Slider */
 .anime-slider {
-    margin-top: 60px;
-    text-align: center;
-    overflow: hidden; /* Hide overflow content */
+    margin-top: 60px; /* Adjust according to navbar height */
     height: calc(100vh - 60px); 
-    box-sizing: border-box; /* Include padding and border in height calculation */
+    overflow: hidden; /* Hide overflow content */
+    position: relative; 
 }
 
-.anime-slider .slide {
+.slide {
     width: 100%; 
+    height: 100%; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    display: none; 
 }
 
 .slide img {
@@ -76,31 +80,27 @@ body, html {
     object-fit: cover;
 }
 
-
-/* Controls container */
-.controls {
+.slide-overlay {
+    position: absolute;
+    top: 50%; /* Position overlay in the middle vertically */
+    left: 50%; /* Position overlay in the middle horizontally */
+    transform: translate(-50%, -50%); /* Center the overlay */
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
 }
 
-/* Control buttons */
-.controls button {
-    font-size: 14px;
-    padding: 10px 20px;
-    margin: 0 5px;
+.play-pause {
+    font-size: 24px;
+    color: white;
+    background: none;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    background-color: #ddd;
-    color: #333;
-    transition: background-color 0.3s ease;
+    outline: none;
+    transition: transform 0.3s ease;
 }
 
-.controls button:hover {
-    background-color: #bbb;
-}
-
-/* Adjust body padding to accommodate fixed navbar */
-body {
-    padding-top: 60px; /* Adjust this value based on navbar height */
+.play-pause:hover {
+    transform: scale(1.2); /* Scale up on hover */
 }
