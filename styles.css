@@ -3,7 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif; 
+    font-family: Arial, sans-serif; /* Use a common font for better cross-platform compatibility */
 }
 
 /* Navbar styling */
@@ -19,38 +19,29 @@ body, html {
     z-index: 1000; /* Ensure navbar is above other content */
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    max-width: 100%;
-    overflow-x: auto;
-}
-
-.nav-links a {
+.navbar a {
     color: white;
     text-decoration: none;
     padding: 10px 20px;
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.navbar a:hover {
     color: #ddd;
 }
 
 /* Anime Slider */
 .anime-slider {
-    margin-top: 90px;
-    height: 200px; 
+    margin-top: 60px; /* Adjust according to navbar height */
+    height: 300px; /* Set height for the slideshow */
     width: 100%;
     overflow: hidden; /* Hide overflow content */
     position: relative;
 }
 
 .slide {
-    width: 200px; 
-    height: 200px; 
+    width: 100%; /* Set width for each slide */
+    height: 100%; /* Set height for each slide */
     display: none;
 }
 
@@ -63,7 +54,7 @@ body, html {
 /* Slideshow Controls */
 .controls {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -83,9 +74,4 @@ body, html {
 
 .controls button:hover {
     background-color: rgba(0, 0, 0, 1);
-}
-
-/* Ensure body content starts below fixed navbar */
-body {
-    padding-top: 120px;
 }
