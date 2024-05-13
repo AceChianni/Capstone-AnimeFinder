@@ -8,7 +8,7 @@
 </head>
 <body>
 
-     <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="quiz.html">Quiz</a>
@@ -16,15 +16,19 @@
         <a href="contact.html">Contact Us</a>
     </nav>
     
-    <div class="container">
+    <div class="rcontainer">
         <h1>Anime Recommendation</h1>
         <p>Enter your favorite anime genre or title:</p>
         <input type="text" id="searchInput" placeholder="Enter genre or title">
         <button onclick="getRecommendations()">Get Recommendations</button>
+    </div>
 
+    <!-- Recommendations Container -->
+    <div class="recscontainer" id="recs">
+        <h2>Recommendations</h2>
         <div id="animeList"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="recs.js"></script>
 </body>
 </html>
