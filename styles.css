@@ -19,8 +19,7 @@ body, html {
 /* Description Section */
 .description {
     text-align: center;
-    padding: 20px;
-    margin-top: 60px; /* Adjust based on navbar height */
+    padding: 100px 20px 20px; /* Adjust padding top to account for navbar height */
 }
 
 /* Main Content Container */
@@ -28,7 +27,7 @@ body, html {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 160px; /* Adjust based on navbar height and padding of description */
 }
 
 /* Sidebar Styles */
@@ -36,9 +35,9 @@ body, html {
     background-color: #ffc04d; /* Light orange */
     color: #1a237e; /* Dark blue text */
     padding: 15px;
-    width: 30%; 
+    width: 200px; /* Adjust sidebar width */
     position: fixed;
-    top: 100px; 
+    top: 160px; /* Adjust based on navbar height and padding of description */
     overflow-y: auto;
 }
 
@@ -52,15 +51,16 @@ body, html {
 
 /* Sidebar Heading (h2) */
 .sidebar h2 {
-    font-family: 'Comic Sans MS', cursive; 
+    font-family: 'Comic Sans MS', cursive; /* Comic Sans font */
     font-size: 24px;
     margin-bottom: 10px;
 }
 
 /* Anime Gallery Slider */
 .anime-slider {
-    width: 65%; 
-    margin-left: 35%;
+    width: calc(100% - 240px); /* Adjust width based on sidebar width */
+    margin-left: 220px; /* Adjust based on sidebar width */
+    overflow: hidden; /* Ensure slideshow does not overflow beyond container */
 }
 
 /* Slideshow Controls */
