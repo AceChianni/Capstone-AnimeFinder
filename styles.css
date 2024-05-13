@@ -82,6 +82,7 @@ body, html {
 .anime-slider {
     margin-top: 60px; /* Adjust according to navbar height */
     text-align: center;
+    overflow: hidden; /* Hide overflow content */
 }
 
 .slide img {
