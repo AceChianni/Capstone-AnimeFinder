@@ -1,20 +1,47 @@
-
-// anime slider (autoplay)
-const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
+let slideshowInterval;
 
-function nextSlide() {
-    // Hide the current slide
-    slides[currentSlide].style.transform = 'translateX(-100%)';
+// Function to show current slide
+function showSlide(index) {
+    const slides = document.querySelectorAll('.slide');
+    if (index < 0) {
+        currentSlide = slides.length - 1;
+    } else if (index >= slides.length) {
+        currentSlide = 0;
+    }
 
-    // Update currentSlide index
-    currentSlide = (currentSlide + 1) % slides.length;
+    slides.forEach((slide) => {
+        slide.style.display = 'none';
+    });
 
-    // Display the next slide
-    slides[currentSlide].style.transform = 'translateX(0)';
+    slides[currentSlide].style.display = 'block';
 }
 
-// Autoplay the slider every 5 seconds
-setInterval(nextSlide, 5000);
-// end of gallery 
+// Function to switch to next slide
+function nextSlide() {
+    currentSlide++;
+    showSlide(currentSlide);
+}
 
+// Function to switch to previous slide
+function prevSlide() {
+    currentSlide--;
+    showSlide(currentSlide);
+}
+
+// Function to start or pause slideshow
+function toggleSlideShow() {
+    const pauseButton = document.querySelector('.controls button:nth-child(2)');
+    if (slideshowInterval) {
+        clearInterval(slideshowInterval);
+        slideshowInterval = null;
+        pauseButton.textContent = 'Play';
+    } else {
+        slideshowInterval = setInterval(nextSlide, 5000);
+        pauseButton.textContent = 'Pause';
+    }
+}
+
+// Initialize slideshow
+showSlide(currentSlide);
+slideshowInterval = setInterval(nextSlide, 5000);
