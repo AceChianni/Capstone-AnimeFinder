@@ -55,18 +55,18 @@ body, html {
 
 /* Anime Slider */
 .anime-slider {
-    margin-top: 60px; 
+    margin-top: 70px; 
     height: 200px; 
     overflow: hidden; /* Hide overflow content */
     position: relative; 
+    display: flex;
+    justify-content: center; 
+    align-items: center
 }
 
 .slide {
     width: 200px; 
-    height: 200px; 
-    position: absolute; 
-    top: 0;
-    left: 0;
+    height: 200px;
     display: none; 
 }
 
@@ -105,9 +105,12 @@ body, html {
 /* Slideshow Controls */
 .controls {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .controls button {
@@ -126,5 +129,5 @@ body, html {
 
 /* Ensure body content starts below fixed navbar */
 body {
-    padding-top: 70px; /* Adjust according to navbar height */
+    padding-top: 80px; /* Adjust according to navbar height */
 }
