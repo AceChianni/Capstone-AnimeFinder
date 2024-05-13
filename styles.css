@@ -11,7 +11,7 @@ body, html {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -38,7 +38,7 @@ body, html {
     color: #ddd;
 }
 
-/* Arrow buttons */
+/* 
 .nav-arrow {
     background: none;
     border: none;
@@ -51,19 +51,19 @@ body, html {
 
 .nav-arrow:hover {
     color: #ddd;
-}
+} */
 
 /* Anime Slider */
 .anime-slider {
     margin-top: 60px; 
-    height: calc(100vh - 60px); 
+    height: 200px; 
     overflow: hidden; /* Hide overflow content */
     position: relative; 
 }
 
 .slide {
-    width: 100%; 
-    height: 100%; 
+    width: 200px; 
+    height: 200px; 
     position: absolute; 
     top: 0;
     left: 0;
@@ -76,15 +76,15 @@ body, html {
     object-fit: cover;
 }
 
-.slide-overlay {
+/* .slide-overlay {
     position: absolute;
-    top: 50%; /* Position overlay in the middle vertically */
-    left: 50%; /* Position overlay in the middle horizontally */
-    transform: translate(-50%, -50%); /* Center the overlay */
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay 
 }
 
 .play-pause {
@@ -98,5 +98,33 @@ body, html {
 }
 
 .play-pause:hover {
-    transform: scale(1.2); /* Scale up on hover */
+    transform: scale(1.2); Scale up on hover
+}
+ */
+
+/* Slideshow Controls */
+.controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.controls button {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.controls button:hover {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+/* Ensure body content starts below fixed navbar */
+body {
+    padding-top: 70px; /* Adjust according to navbar height */
 }
