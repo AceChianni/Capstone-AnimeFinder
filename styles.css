@@ -3,7 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif; /* Use a common font for better cross-platform compatibility */
+    font-family: Arial, sans-serif; 
 }
 
 /* Navbar styling */
@@ -33,15 +33,15 @@ body, html {
 /* Anime Slider */
 .anime-slider {
     margin-top: 60px; /* Adjust according to navbar height */
-    height: 300px; /* Set height for the slideshow */
+    height: 450px; /* cover art size */
     width: 100%;
     overflow: hidden; /* Hide overflow content */
     position: relative;
 }
 
 .slide {
-    width: 100%; /* Set width for each slide */
-    height: 100%; /* Set height for each slide */
+    width: 300px; /* Set width for each slide */
+    height: 450px; /* Set height for each slide */
     display: none;
 }
 
