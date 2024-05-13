@@ -58,9 +58,15 @@ body, html {
 
 /* Anime Gallery Slider */
 .anime-slider {
-    width: calc(100% - 240px); /* Adjust width based on sidebar width */
+    flex: 1; /* Allow slideshow to take remaining space */
+    max-width: calc(100% - 240px); /* Maximum width (minus sidebar width) */
     margin-left: 220px; /* Adjust based on sidebar width */
     overflow: hidden; /* Ensure slideshow does not overflow beyond container */
+}
+
+.anime-slider img {
+    width: 100%; /* Ensure images within slideshow are responsive */
+    height: auto;
 }
 
 /* Slideshow Controls */
@@ -81,4 +87,23 @@ body, html {
 
 .controls button:hover {
     background-color: #555;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        top: 0;
+        margin-top: 20px;
+    }
+
+    .anime-slider {
+        max-width: 100%; /* Full width for slideshow on smaller screens */
+        margin-left: 0; /* Remove left margin on smaller screens */
+    }
 }
