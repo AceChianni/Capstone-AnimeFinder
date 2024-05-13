@@ -38,21 +38,6 @@ body, html {
     color: #ddd;
 }
 
-/* 
-.nav-arrow {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    outline: none;
-    transition: color 0.3s ease;
-}
-
-.nav-arrow:hover {
-    color: #ddd;
-} */
-
 /* Anime Slider */
 .anime-slider {
     margin-top: 80px; 
@@ -77,36 +62,10 @@ body, html {
     object-fit: cover;
 }
 
-/* .slide-overlay {
-    position: absolute;
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay 
-}
-
-.play-pause {
-    font-size: 24px;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    transition: transform 0.3s ease;
-}
-
-.play-pause:hover {
-    transform: scale(1.2); Scale up on hover
-}
- */
-
 /* Slideshow Controls */
 .controls {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
