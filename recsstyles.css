@@ -57,7 +57,7 @@ body {
     text-align: center;
     cursor: pointer;
     overflow: hidden; /* Hide overflow content (description) */
-    transition: all 0.3s ease; /* Smooth transition on hover */
+    transition: height 0.3s ease; /* Smooth transition for height change */
 }
 
 .anime-card:hover {
@@ -80,6 +80,15 @@ body {
     transform: scale(1.1); /* Scale up image on hover */
 }
 
+.anime-description {
+    opacity: 0; /* Initially hide description */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity change */
+}
+
+.anime-card:hover .anime-description {
+    opacity: 1; /* Show description on hover */
+}
+
 .load-more-container {
     margin-top: 20px;
 }
@@ -96,5 +105,8 @@ body {
 }
 
 .load-more-btn:hover {
+    background-color: #ff7f50; /* Darker orangey peach on hover */
+}
+
     background-color: #ff7f50; /* Darker orangey peach on hover */
 }
