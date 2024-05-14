@@ -1,30 +1,30 @@
 "use strict"
 const GENRE_IDS = {
-    "Drama": 8,
-    "Comedy": 4,
-    "Action": 1,
-    "Fantasy": 10,
-    "Science Fiction": 24,
-    "Serious and deep": 8, // Drama
-    "Funny and quirky": 4, // Comedy
-    "Brave and adventurous": 2, // Adventure
-    "Magical and mystical": 10, // Fantasy
-    "Intelligent and innovative": 24, // Sci-Fi
-    "Emotionally gripping": 8, // Drama
-    "Light-hearted and humorous": 4, // Comedy
-    "Full of thrilling battles": 1, // Action
-    "Involving supernatural elements": 37, // Supernatural
-    "Exploring futuristic concepts": 24, // Sci-Fi
-    "Urban cityscape": 8, // Drama (as an example)
-    "Rural countryside": 4, // Comedy (as an example)
-    "Fantasy world": 10, // Fantasy
-    "Outer space": 24, // Sci-Fi
-    "Historical era": 13, // Historical
-    "Serious and intense": 8, // Drama
-    "Light-hearted and fun": 4, // Comedy
-    "Mysterious and suspenseful": 7, // Mystery
-    "Whimsical and magical": 10, // Fantasy
-    "Futuristic and innovative": 24, // Sci-Fi
+    "Drama": "Drama",
+    "Comedy": "Comedy",
+    "Action": "Action",
+    "Fantasy": "Fantasy",
+    "Science Fiction": "Sci-Fi",
+    "Serious and deep": "Drama",
+    "Funny and quirky": "Comedy",
+    "Brave and adventurous": "Adventure",
+    "Magical and mystical": "Fantasy",
+    "Intelligent and innovative": "Sci-Fi",
+    "Emotionally gripping": "Drama",
+    "Light-hearted and humorous": "Comedy",
+    "Full of thrilling battles": "Action",
+    "Involving supernatural elements": "Supernatural",
+    "Exploring futuristic concepts": "Sci-Fi",
+    "Urban cityscape": "Slice of Life",
+    "Rural countryside": "Slice of Life",
+    "Fantasy world": "Fantasy",
+    "Outer space": "Sci-Fi",
+    "Historical era": "Historical",
+    "Serious and intense": "Drama",
+    "Light-hearted and fun": "Comedy",
+    "Mysterious and suspenseful": "Mystery",
+    "Whimsical and magical": "Fantasy",
+    "Futuristic and innovative": "Sci-Fi"
 };
 
 function showNextQuestion(currentQuestionId) {
@@ -83,13 +83,13 @@ async function fetchRecommendations(selectedGenres) {
     const recommendations = document.getElementById('recommendationContainer');
     recommendations.innerHTML = '<p>Loading recommendations...</p>';
 
-    const genreIds = selectedGenres.map(genre => GENRE_IDS[genre]);
-    const uniqueGenreIds = [...new Set(genreIds)];
+    const genreNames = selectedGenres.map(genre => GENRE_IDS[genre]);
+    const uniqueGenreNames = [...new Set(genreNames)];
     
     const query = `
-        query ($genreIds: [Int]) {
+        query ($genres: [String]) {
             Page(perPage: 5) {
-                media(genre_in: $genreIds, type: ANIME) {
+                media(genre_in: $genres, type: ANIME, sort: POPULARITY_DESC) {
                     title {
                         romaji
                     }
@@ -97,13 +97,14 @@ async function fetchRecommendations(selectedGenres) {
                         large
                     }
                     description
+                    siteUrl
                 }
             }
         }
     `;
 
     const variables = {
-        genreIds: uniqueGenreIds,
+        genres: uniqueGenreNames,
     };
 
     try {
@@ -143,6 +144,7 @@ function displayRecommendations(animeList) {
             <h3>${anime.title.romaji}</h3>
             <img src="${anime.coverImage.large}" alt="${anime.title.romaji}">
             <p>${anime.description}</p>
+            <a href="${anime.siteUrl}" target="_blank">More Info</a>
         `;
         recommendations.appendChild(animeItem);
     });
