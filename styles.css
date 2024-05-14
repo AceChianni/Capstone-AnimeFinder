@@ -3,8 +3,8 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0; 
-    color: #333; 
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Text color */
 }
 
 /* Container */
@@ -114,6 +114,7 @@ body, html {
 
 /* Poll */
 .poll {
+    width: 250px;
     background-color: #f5f5f5;
     padding: 20px;
     border-radius: 8px;
@@ -123,9 +124,38 @@ body, html {
 .poll h2 {
     font-family: 'Comic Sans MS', cursive;
     font-size: 20px;
-    margin-bottom: 
+    margin-bottom: 15px;
+    color: #333;
+}
 
-        /* Status Bar */
+.poll form {
+    margin-top: 10px;
+}
+
+.poll label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.poll input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.poll button {
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.poll button:hover {
+    background-color: #555;
+}
+
+/* Status Bar */
 #pollStatusBar {
     padding: 10px;
     margin-top: 10px;
@@ -136,4 +166,3 @@ body, html {
     color: #333;
     text-align: center;
 }
-
