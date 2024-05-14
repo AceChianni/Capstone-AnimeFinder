@@ -3,8 +3,8 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8; /* Light background color */
-    color: #333; /* Text color */
+    background-color: #f0f0f0; 
+    color: #333; 
 }
 
 /* Container */
@@ -94,21 +94,22 @@ body, html {
 /* Anime Slideshow */
 .anime-slider {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
 .slide {
-    flex: 0 0 calc(33.33% - 10px); 
-    margin-bottom: 10px;
+    flex: 0 0 250px; /* Fixed width for each slide */
+    margin-right: 20px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .slide img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    object-fit: cover; 
 }
 
 /* Poll */
@@ -122,10 +123,4 @@ body, html {
 .poll h2 {
     font-family: 'Comic Sans MS', cursive;
     font-size: 20px;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.poll label {
-    display: block;
-    margin-bottom
+    margin-bottom: 
