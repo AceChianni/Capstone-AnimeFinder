@@ -1,5 +1,4 @@
 "use strict"
-
 function getRecommendations() {
     const searchInput = document.getElementById('searchInput').value.trim();
     
@@ -44,13 +43,20 @@ function getRecommendations() {
             variables: variables
         })
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
     .then(data => {
+        console.log('API Response:', data); // Log API response for debugging
+        
         const animeList = document.getElementById('animeList');
         animeList.innerHTML = ''; // Clear previous results
         
-        if (data.data && data.data.Page && data.data.Page.media) {
-            const animeData = data.data.Page.media;
+        if (data.data && data.data.Page && data.data.Page.media && data.data.Page.media.nodes.length > 0) {
+            const animeData = data.data.Page.media.nodes;
             animeData.forEach(anime => {
                 const animeCard = document.createElement('div');
                 animeCard.classList.add('anime-card');
@@ -74,4 +80,3 @@ function getRecommendations() {
         alert('Failed to fetch anime recommendations. Please try again.');
     });
 }
-
