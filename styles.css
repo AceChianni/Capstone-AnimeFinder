@@ -83,6 +83,7 @@ body, html {
     margin-top: 20px;
 }
 
+/* Content */
 .content {
     flex: 1;
     background-color: #2ECC40;
@@ -90,27 +91,30 @@ body, html {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: #fff;
+    display: flex;
+    justify-content: center; /* Center the slide container horizontally */
+    align-items: center; /* Center the slide container vertically */
 }
 
 /* Anime Slideshow */
 .anime-slider {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    justify-content: center; /* Center slides */
+    width: 400px;
+    height: 600px;
+    position: relative;
 }
 
 .slide {
-    flex: 0 0 250px; /* Fixed width for each slide */
-    margin-right: 20px;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none; /* Hide all slides by default */
+    position: absolute;
 }
 
 .slide img {
     width: 100%;
-    height: auto;
-    object-fit: cover; /* Ensure the image covers the entire space */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 /* Poll */
