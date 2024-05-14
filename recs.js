@@ -3,10 +3,11 @@ let offset = 0;
 const limit = 5;
 
 const animeContainer = document.getElementById('animeContainer');
-const loadMoreContainer = document.getElementById('loadMoreContainer');
-
-loadMoreContainer.innerHTML = '<button class="load-more-btn" id="loadMoreBtn">Load More</button>';
 const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+// Load initial batch of anime on page load
+loadMoreAnime();
+
 loadMoreBtn.addEventListener('click', loadMoreAnime);
 
 function loadMoreAnime() {
@@ -70,7 +71,6 @@ function fetchAnimeData(offset, limit) {
 }
 
 function displayAnime(animeData) {
-    animeContainer.innerHTML = ''; // Clear previous anime cards
     animeData.forEach(anime => {
         const animeCard = createAnimeCard(anime);
         animeContainer.appendChild(animeCard);
@@ -84,15 +84,12 @@ function createAnimeCard(anime) {
     animeCard.innerHTML = `
         <h3>${anime.title.romaji}</h3>
         <img src="${anime.coverImage.large}" alt="${anime.title.romaji}">
+        <p class="anime-description">${anime.description}</p>
     `;
     
     animeCard.addEventListener('click', () => {
-        showAnimeDetails(anime);
+        animeCard.classList.toggle('show-description');
     });
 
     return animeCard;
-}
-
-function showAnimeDetails(anime) {
-    alert(`Title: ${anime.title.romaji}\nDescription: ${anime.description}`);
 }
