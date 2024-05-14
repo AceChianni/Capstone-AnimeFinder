@@ -21,7 +21,7 @@
         <h1>Anime Recommendation Quiz</h1>
         <form id="quizForm">
             <!-- Question 1 -->
-            <div class="question">
+            <div class="question" id="question1">
                 <p>1. What type of TV shows or movies do you enjoy the most?</p>
                 <label>
                     <input type="radio" name="question1" value="Drama">
@@ -43,10 +43,11 @@
                     <input type="radio" name="question1" value="Science Fiction">
                     Science Fiction
                 </label>
+                <button type="button" onclick="showNextQuestion('question1')">Next</button>
             </div>
 
             <!-- Question 2 -->
-            <div class="question">
+            <div class="question" id="question2" style="display: none;">
                 <p>2. Which type of characters do you prefer?</p>
                 <label>
                     <input type="radio" name="question2" value="Serious and deep">
@@ -68,10 +69,11 @@
                     <input type="radio" name="question2" value="Intelligent and innovative">
                     Intelligent and innovative
                 </label>
+                <button type="button" onclick="showNextQuestion('question2')">Next</button>
             </div>
 
             <!-- Question 3 -->
-            <div class="question">
+            <div class="question" id="question3" style="display: none;">
                 <p>3. What kind of storyline do you find most intriguing?</p>
                 <label>
                     <input type="radio" name="question3" value="Emotionally gripping">
@@ -93,10 +95,11 @@
                     <input type="radio" name="question3" value="Exploring futuristic concepts">
                     Exploring futuristic concepts
                 </label>
+                <button type="button" onclick="showNextQuestion('question3')">Next</button>
             </div>
 
             <!-- Question 4 -->
-            <div class="question">
+            <div class="question" id="question4" style="display: none;">
                 <p>4. Which setting or environment do you prefer in a TV show or movie?</p>
                 <label>
                     <input type="radio" name="question4" value="Urban cityscape">
@@ -118,10 +121,11 @@
                     <input type="radio" name="question4" value="Historical era">
                     Historical era
                 </label>
+                <button type="button" onclick="showNextQuestion('question4')">Next</button>
             </div>
 
             <!-- Question 5 -->
-            <div class="question">
+            <div class="question" id="question5" style="display: none;">
                 <p>5. What is your preferred tone or atmosphere in a TV show or movie?</p>
                 <label>
                     <input type="radio" name="question5" value="Serious and intense">
@@ -143,9 +147,8 @@
                     <input type="radio" name="question5" value="Futuristic and innovative">
                     Futuristic and innovative
                 </label>
+                <button type="button" onclick="submitQuiz()">Submit</button>
             </div>
-
-            <button type="button" onclick="submitQuiz()">Submit</button>
         </form>
 
         <div id="recommendationContainer" style="display: none;">
