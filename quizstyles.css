@@ -2,12 +2,12 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Navigation Bar */
 .navbar {
-    background-color: #ff6b6b; /* Reddish-pink navbar */
+    background-color: #003366; /* Dark blue navbar */
     color: white;
     padding: 10px 20px;
 }
@@ -28,7 +28,7 @@ body {
     font-family: 'Roboto', sans-serif; /* Anime-themed custom font */
     margin: 0;
     padding: 0;
-    background-color: #f9f5f5; /* Light pink background */
+    background-color: #e0f7fa; /* Light blue background */
 }
 
 .quizcontainer {
