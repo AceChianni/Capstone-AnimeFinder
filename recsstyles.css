@@ -5,30 +5,10 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
-/* Navigation bar styles */
-.navbar {
-    background-color: #2ecc71; /* Green navbar */
-    overflow: hidden;
-}
-
-.navbar a {
-    float: left;
-    display: block;
-    color: #fff;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    background-color: #27ae60; /* Darker green on hover */
-}
-
-/* main content */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #ffb347; /* Orangey peach background */
-    color: #333; /* Contrasting text color */
+    color: #333; /* Dark text color for contrast */
     padding: 20px;
     text-align: center;
 }
@@ -37,6 +17,25 @@ body {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+}
+
+.navbar {
+    background-color: #ff6b6b; /* Reddish navbar for contrast */
+    overflow: hidden;
+    text-align: center; /* Center-align the text within navbar */
+}
+
+.navbar a {
+    display: inline-block; /* Use inline-block to center the links */
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px; /* Adjust font size for better visibility */
+}
+
+.navbar a:hover {
+    background-color: #ee5253; /* Darker red on hover */
 }
 
 .anime-container {
@@ -105,8 +104,5 @@ body {
 }
 
 .load-more-btn:hover {
-    background-color: #ff7f50; /* Darker orangey peach on hover */
-}
-
     background-color: #ff7f50; /* Darker orangey peach on hover */
 }
