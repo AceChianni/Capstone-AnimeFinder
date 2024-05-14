@@ -32,12 +32,11 @@
             </ul>
         </aside>
 
-        <!-- Content Area - Anime Slideshow and Poll -->
+        <!-- Content Area - Anime Slideshow -->
         <section class="content">
-            <!-- Anime Slideshow -->
             <div class="anime-slider">
                 <div class="slide">
-                    <img src="https://via.placeholder.com/400x600/66ff76/333333?text=Anime+1" alt="Anime 1">
+                    <img src="https://via.placeholder.com/400x600/ffcc66/333333?text=Anime+1" alt="Anime 1">
                 </div>
                 <div class="slide">
                     <img src="https://via.placeholder.com/400x600/ff66a3/333333?text=Anime+2" alt="Anime 2">
@@ -46,34 +45,35 @@
                     <img src="https://via.placeholder.com/400x600/66ccff/333333?text=Anime+3" alt="Anime 3">
                 </div>
             </div>
-
-            <!-- Poll - Best Starting Anime -->
-            <aside class="poll">
-                <h2>Best Starting Anime Poll</h2>
-                <form id="animePoll">
-                    <label>
-                        <input type="radio" name="anime" value="one-piece"> One Piece
-                    </label><br>
-                    <label>
-                        <input type="radio" name="anime" value="jujutsu-kaisen"> Jujutsu Kaisen
-                    </label><br>
-                    <label>
-                        <input type="radio" name="anime" value="bleach"> Bleach
-                    </label><br>
-                    <label>
-                        <input type="radio" name="anime" value="naruto"> Naruto
-                    </label><br>
-                    <label>
-                        <input type="radio" name="anime" value="demon-slayer"> Demon Slayer
-                    </label><br>
-                    <label>
-                        <input type="radio" name="anime" value="other"> Other:
-                        <input type="text" name="otherText" placeholder="Type other anime">
-                    </label><br>
-                    <button type="submit">Vote</button>
-                </form>
-            </aside>
         </section>
+
+        <!-- Poll - Best Starting Anime -->
+        <aside class="poll">
+            <h2>Best Starting Anime Poll</h2>
+            <form id="animePoll">
+                <label>
+                    <input type="radio" name="anime" value="one-piece"> One Piece
+                </label><br>
+                <label>
+                    <input type="radio" name="anime" value="jujutsu-kaisen"> Jujutsu Kaisen
+                </label><br>
+                <label>
+                    <input type="radio" name="anime" value="bleach"> Bleach
+                </label><br>
+                <label>
+                    <input type="radio" name="anime" value="naruto"> Naruto
+                </label><br>
+                <label>
+                    <input type="radio" name="anime" value="demon-slayer"> Demon Slayer
+                </label><br>
+                <label>
+                    <input type="radio" name="anime" value="other"> Other:
+                    <input type="text" name="otherText" placeholder="Type other anime">
+                </label><br>
+                <button type="submit">Vote</button>
+            </form>
+            <div id="pollStatusBar"></div>
+        </aside>
     </main>
 
     <script src="script.js"></script>
