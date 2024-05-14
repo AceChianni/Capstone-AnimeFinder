@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #fefefe;
+    background-color: #FFE5B4; /* Orangey peach color */
     color: #333;
     margin: 0;
     padding: 0;
@@ -29,12 +29,15 @@ form {
 }
 
 .form-group {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
 }
 
 label {
     font-weight: bold;
     color: #ff6f61; /* Coral pink */
+    margin-bottom: 5px;
 }
 
 input[type="text"],
@@ -45,6 +48,8 @@ textarea {
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 button {
@@ -53,9 +58,11 @@ button {
     background-color: #ff6f61; /* Coral pink */
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 50px; /* Rounded shape */
     cursor: pointer;
     transition: background-color 0.3s ease;
+    align-self: center;
+    margin-top: 20px;
 }
 
 button:hover {
@@ -86,7 +93,7 @@ button:hover {
 }
 
 .submit-button {
-    align-self: flex-end;
+    align-self: center;
     background: none;
     border: none;
     cursor: pointer;
