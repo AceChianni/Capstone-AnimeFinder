@@ -49,6 +49,7 @@ body {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    cursor: pointer;
 }
 
 .anime-card img {
@@ -56,4 +57,18 @@ body {
     height: auto;
     border-radius: 5px;
 }
+
+.load-more-container {
+    margin-top: 20px;
+}
+
+.load-more-btn {
+    background-color: #ff9f43;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
 
