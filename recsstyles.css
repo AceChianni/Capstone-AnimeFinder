@@ -4,6 +4,8 @@ body, html {
     padding: 0;
     font-family: Arial, sans-serif;
 }
+
+/* main styles  */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #ffb347; /* Orangey peach background */
@@ -92,6 +94,26 @@ body {
     padding: 20px;
     text-align: left;
     font-size: 14px;
+}
+
+/* Custom Scrollbar Styles */
+.anime-description::-webkit-scrollbar {
+    width: 10px;
+}
+
+.anime-description::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Semi-transparent track background */
+    border-radius: 10px;
+}
+
+.anime-description::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 165, 0, 0.8); /* Vibrant orange color, semi-transparent */
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.6); /* White border for better visibility */
+}
+
+.anime-description::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 140, 0, 0.8); /* Darker orange on hover */
 }
 
 .load-more-container {
