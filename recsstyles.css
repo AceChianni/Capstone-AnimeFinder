@@ -4,7 +4,6 @@ body, html {
     padding: 0;
     font-family: Arial, sans-serif;
 }
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #ffb347; /* Orangey peach background */
@@ -81,6 +80,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: auto; /* Add scrollbar for overflow text */
     transition: opacity 0.3s ease; /* Smooth transition for opacity change */
 }
 
