@@ -1,4 +1,4 @@
-/* page Styles */
+/* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #fefefe;
@@ -48,7 +48,6 @@ textarea {
 }
 
 button {
-    display: inline-block;
     padding: 12px 20px;
     font-size: 16px;
     background-color: #ff6f61; /* Coral pink */
@@ -92,9 +91,3 @@ button:hover {
     border: none;
     cursor: pointer;
 }
-
-img {
-    width: 40px;
-    height: 40px;
-}
-
