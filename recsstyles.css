@@ -49,15 +49,18 @@ body {
 .anime-card {
     width: calc(20% - 20px);
     margin: 10px;
-    padding: 0; /* Remove padding to collapse white space */
+    padding: 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     cursor: pointer;
-    overflow: hidden; /* Hide overflow content (description) */
-    position: relative; /* Position for absolute description */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures title is at the top and image aligns at the bottom */
 }
 
 .anime-card img {
@@ -65,6 +68,7 @@ body {
     height: auto;
     border-radius: 5px;
     transition: transform 0.3s ease; /* Smooth transform on hover */
+    flex-grow: 1; /* Ensure the image takes up remaining space */
 }
 
 .anime-card:hover img {
@@ -84,6 +88,8 @@ body {
     align-items: center;
     overflow: auto; /* Add scrollbar for overflow text */
     transition: opacity 0.3s ease; /* Smooth transition for opacity change */
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding is included in the height */
 }
 
 .anime-card:hover .anime-description {
@@ -91,9 +97,9 @@ body {
 }
 
 .anime-description p {
-    padding: 20px;
     text-align: left;
     font-size: 14px;
+    margin: 0;
 }
 
 /* Custom Scrollbar Styles */
