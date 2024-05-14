@@ -23,7 +23,7 @@ body, html {
     margin: 0 10px;
 }
 
-/* main conent  */
+/* Main Content */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -41,42 +41,47 @@ body {
 }
 
 h1 {
-    font-size: 28px;
-    color: #333;
+    font-size: 36px;
+    color: #ff6b6b; /* Reddish-pink title */
     text-align: center;
-}
-
-.question {
     margin-bottom: 20px;
 }
 
+.question {
+    margin-bottom: 30px;
+}
+
 .question p {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #333;
 }
 
 label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #555;
 }
 
 input[type="radio"] {
-    margin-right: 5px;
+    margin-right: 8px;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: #ff6b6b; /* Reddish-pink button */
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 30px; /* Round button */
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #ff4d4d; /* Darker shade on hover */
 }
 
 #recommendationContainer {
@@ -84,14 +89,14 @@ button:hover {
 }
 
 .anime-item {
-    border: 1px solid #ddd;
+    border: 2px solid #ff6b6b; /* Reddish-pink border for anime items */
     padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+    margin-bottom: 30px;
+    border-radius: 12px;
 }
 
 .anime-item h3 {
-    font-size: 20px;
+    font-size: 24px;
     color: #333;
     margin-bottom: 10px;
 }
@@ -99,8 +104,8 @@ button:hover {
 .anime-item img {
     max-width: 100%;
     height: auto;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
 .anime-item p {
@@ -110,17 +115,25 @@ button:hover {
 
 .anime-item a {
     display: inline-block;
-    margin-top: 10px;
-    padding: 8px 16px;
-    font-size: 14px;
-    color: #007bff;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ff6b6b; /* Reddish-pink button */
+    border-radius: 30px;
     text-decoration: none;
-    border: 1px solid #007bff;
-    border-radius: 4px;
     transition: background-color 0.3s ease;
 }
 
 .anime-item a:hover {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #ff4d4d; /* Darker shade on hover */
+}
+
+/* Heart-shaped button */
+button.next::before,
+button.reset::before {
+    content: '\2665'; /* Unicode for heart symbol */
+    display: inline-block;
+    font-size: 24px;
+    margin-right: 8px;
+    transform: translateY(-2px); /* Adjust vertical alignment */
 }
