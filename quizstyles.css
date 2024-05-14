@@ -2,12 +2,12 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 /* Navigation Bar */
 .navbar {
-    background-color: #333;
+    background-color: #ff6b6b; /* Reddish-pink navbar */
     color: white;
     padding: 10px 20px;
 }
@@ -25,19 +25,19 @@ body, html {
 
 /* Main Content */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; /* Anime-themed custom font */
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7;
+    background-color: #f9f5f5; /* Light pink background */
 }
 
 .quizcontainer {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffefde; /* Orangey peach container */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -45,6 +45,7 @@ h1 {
     color: #ff6b6b; /* Reddish-pink title */
     text-align: center;
     margin-bottom: 20px;
+    font-family: 'Lobster', cursive; /* Anime-themed custom font for header */
 }
 
 .question {
@@ -75,13 +76,27 @@ button {
     background-color: #ff6b6b; /* Reddish-pink button */
     color: #fff;
     border: none;
-    border-radius: 30px; /* Round button */
+    border-radius: 50px; /* Round button */
     cursor: pointer;
     transition: background-color 0.3s ease;
+    position: relative;
 }
 
 button:hover {
     background-color: #ff4d4d; /* Darker shade on hover */
+}
+
+/* Heart-shaped button */
+button.next::before,
+button.reset::before {
+    content: '\2665'; /* Unicode for heart symbol */
+    display: inline-block;
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%); /* Center vertically */
+    color: white;
 }
 
 #recommendationContainer {
@@ -126,14 +141,4 @@ button:hover {
 
 .anime-item a:hover {
     background-color: #ff4d4d; /* Darker shade on hover */
-}
-
-/* Heart-shaped button */
-button.next::before,
-button.reset::before {
-    content: '\2665'; /* Unicode for heart symbol */
-    display: inline-block;
-    font-size: 24px;
-    margin-right: 8px;
-    transform: translateY(-2px); /* Adjust vertical alignment */
 }
