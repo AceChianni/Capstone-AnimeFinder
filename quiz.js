@@ -148,4 +148,24 @@ function displayRecommendations(animeList) {
         `;
         recommendations.appendChild(animeItem);
     });
+
+    const resetButton = document.createElement('button');
+    resetButton.innerText = 'Restart Quiz';
+    resetButton.onclick = resetQuiz;
+    recommendations.appendChild(resetButton);
+}
+
+function resetQuiz() {
+    document.getElementById('quizForm').reset();
+    document.getElementById('quizForm').style.display = 'block';
+    document.getElementById('recommendationContainer').style.display = 'none';
+
+    const questions = document.querySelectorAll('.question');
+    questions.forEach((question, index) => {
+        if (index === 0) {
+            question.style.display = 'block';
+        } else {
+            question.style.display = 'none';
+        }
+    });
 }
