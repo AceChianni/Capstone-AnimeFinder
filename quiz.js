@@ -1,91 +1,149 @@
 "use strict"
+const GENRE_IDS = {
+    "Drama": 8,
+    "Comedy": 4,
+    "Action": 1,
+    "Fantasy": 10,
+    "Science Fiction": 24,
+    "Serious and deep": 8, // Drama
+    "Funny and quirky": 4, // Comedy
+    "Brave and adventurous": 2, // Adventure
+    "Magical and mystical": 10, // Fantasy
+    "Intelligent and innovative": 24, // Sci-Fi
+    "Emotionally gripping": 8, // Drama
+    "Light-hearted and humorous": 4, // Comedy
+    "Full of thrilling battles": 1, // Action
+    "Involving supernatural elements": 37, // Supernatural
+    "Exploring futuristic concepts": 24, // Sci-Fi
+    "Urban cityscape": 8, // Drama (as an example)
+    "Rural countryside": 4, // Comedy (as an example)
+    "Fantasy world": 10, // Fantasy
+    "Outer space": 24, // Sci-Fi
+    "Historical era": 13, // Historical
+    "Serious and intense": 8, // Drama
+    "Light-hearted and fun": 4, // Comedy
+    "Mysterious and suspenseful": 7, // Mystery
+    "Whimsical and magical": 10, // Fantasy
+    "Futuristic and innovative": 24, // Sci-Fi
+};
 
-const quizQuestions = [
-    {
-        question: "What genre of TV shows do you enjoy the most?",
-        options: ["Drama", "Comedy", "Action", "Fantasy", "Science Fiction"]
-    },
-    {
-        question: "Which type of characters do you prefer?",
-        options: ["Serious and deep", "Funny and quirky", "Brave and adventurous", "Magical and mystical", "Intelligent and innovative"]
-    },
-    {
-        question: "What kind of storyline do you find most intriguing?",
-        options: ["Emotionally gripping", "Light-hearted and humorous", "Full of thrilling battles", "Involving supernatural elements", "Exploring futuristic concepts"]
+function showNextQuestion(currentQuestionId) {
+    const currentQuestion = document.getElementById(currentQuestionId);
+    const radioButtons = currentQuestion.querySelectorAll('input[type="radio"]');
+    let answered = false;
+
+    for (let radio of radioButtons) {
+        if (radio.checked) {
+            answered = true;
+            break;
+        }
     }
-];
 
-let userAnswers = [];
-
-function startQuiz() {
-    const quizContainer = document.getElementById('quizContainer');
-
-    quizQuestions.forEach((questionObj, index) => {
-        const questionElement = document.createElement('div');
-        questionElement.innerHTML = `
-            <p>${index + 1}. ${questionObj.question}</p>
-            <select id="answer${index}">
-                ${questionObj.options.map(option => `<option value="${option}">${option}</option>`).join('')}
-            </select>
-        `;
-        quizContainer.appendChild(questionElement);
-    });
+    if (answered) {
+        currentQuestion.style.display = 'none';
+        const nextQuestion = currentQuestion.nextElementSibling;
+        if (nextQuestion) {
+            nextQuestion.style.display = 'block';
+        }
+    } else {
+        alert('Please answer the question before proceeding.');
+    }
 }
 
-async function fetchAnimeRecommendation() {
-    const query = userAnswers.join(' ').toLowerCase();
+async function submitQuiz() {
+    const questions = document.querySelectorAll('.question');
+    let allAnswered = true;
+    const selectedGenres = [];
 
-    const apiUrl = `https://api.jikan.moe/v4/anime/search?q=${query}&limit=1`;
+    questions.forEach((question) => {
+        const radioButtons = question.querySelectorAll('input[type="radio"]');
+        let answered = false;
+        for (let radio of radioButtons) {
+            if (radio.checked) {
+                answered = true;
+                selectedGenres.push(radio.value);
+                break;
+            }
+        }
+        if (!answered) {
+            allAnswered = false;
+        }
+    });
+
+    if (allAnswered) {
+        document.getElementById('quizForm').style.display = 'none';
+        document.getElementById('recommendationContainer').style.display = 'block';
+        await fetchRecommendations(selectedGenres);
+    } else {
+        alert('Please answer all questions before submitting.');
+    }
+}
+
+async function fetchRecommendations(selectedGenres) {
+    const recommendations = document.getElementById('recommendationContainer');
+    recommendations.innerHTML = '<p>Loading recommendations...</p>';
+
+    const genreIds = selectedGenres.map(genre => GENRE_IDS[genre]);
+    const uniqueGenreIds = [...new Set(genreIds)];
+    
+    const query = `
+        query ($genreIds: [Int]) {
+            Page(perPage: 5) {
+                media(genre_in: $genreIds, type: ANIME) {
+                    title {
+                        romaji
+                    }
+                    coverImage {
+                        large
+                    }
+                    description
+                }
+            }
+        }
+    `;
+
+    const variables = {
+        genreIds: uniqueGenreIds,
+    };
 
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch('https://graphql.anilist.co', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                query: query,
+                variables: variables
+            })
+        });
+        
         const data = await response.json();
 
-        if (data.anime && data.anime.length > 0) {
-            const anime = data.anime[0]; // Get the first anime from the list
-
-            const recommendationContainer = document.getElementById('recommendationContainer');
-            recommendationContainer.innerHTML = ''; // Clear previous result
-
-            const recommendationElement = document.createElement('div');
-            recommendationElement.innerHTML = `
-                <h2>Recommended Anime:</h2>
-                <h3>${anime.title}</h3>
-                <img src="${anime.cover_image}" alt="${anime.title}" />
-                <p>Score: ${anime.average_score}</p>
-                <p>Episodes: ${anime.total_episodes}</p>
-                <button onclick="showTrailer('${anime.title}', '${anime.trailer_url}')">Watch Trailer</button>
-            `;
-            recommendationContainer.appendChild(recommendationElement);
-
-            recommendationContainer.style.display = 'block'; // Show the recommendation
+        if (data.data.Page.media.length > 0) {
+            displayRecommendations(data.data.Page.media);
         } else {
-            alert('No anime found. Please try again with different preferences.');
+            recommendations.innerHTML = '<p>No recommendations found based on your preferences. Please try again with different options.</p>';
         }
     } catch (error) {
-        console.error('Error fetching anime data:', error);
-        alert('Failed to fetch anime recommendation. Please try again later.');
+        recommendations.innerHTML = '<p>Failed to fetch recommendations. Please try again later.</p>';
+        console.error('Error fetching recommendations:', error);
     }
 }
 
-function submitQuiz() {
-    userAnswers = [];
+function displayRecommendations(animeList) {
+    const recommendations = document.getElementById('recommendationContainer');
+    recommendations.innerHTML = '<h2>Recommended Anime</h2>';
 
-    quizQuestions.forEach((questionObj, index) => {
-        const answer = document.getElementById(`answer${index}`).value;
-        userAnswers.push(answer);
+    animeList.forEach(anime => {
+        const animeItem = document.createElement('div');
+        animeItem.classList.add('anime-item');
+        animeItem.innerHTML = `
+            <h3>${anime.title.romaji}</h3>
+            <img src="${anime.coverImage.large}" alt="${anime.title.romaji}">
+            <p>${anime.description}</p>
+        `;
+        recommendations.appendChild(animeItem);
     });
-
-    fetchAnimeRecommendation();
 }
-
-function showTrailer(title, trailerUrl) {
-    if (trailerUrl) {
-        window.open(trailerUrl, '_blank');
-    } else {
-        alert(`Sorry, no trailer available for ${title}`);
-    }
-}
-
-// Initialize the quiz when the page loads
-startQuiz();
