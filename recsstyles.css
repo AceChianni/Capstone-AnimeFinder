@@ -25,17 +25,18 @@ body, html {
 }
 
 /* main content */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffb347; /* Orangey peach background */
+    color: #333; /* Contrasting text color */
+    padding: 20px;
+    text-align: center;
+}
+
 .page-title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    padding: 20px;
-    text-align: center;
 }
 
 .anime-container {
@@ -55,12 +56,28 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     cursor: pointer;
+    overflow: hidden; /* Hide overflow content (description) */
+    transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+.anime-card:hover {
+    height: auto; /* Expand height on hover to show full content */
+}
+
+.anime-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .anime-card img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
+    transition: transform 0.3s ease; /* Smooth transform on hover */
+}
+
+.anime-card:hover img {
+    transform: scale(1.1); /* Scale up image on hover */
 }
 
 .load-more-container {
@@ -68,12 +85,16 @@ body {
 }
 
 .load-more-btn {
-    background-color: #ff9f43;
+    background-color: #ff9f43; /* Orangey peach button color */
     color: #fff;
     border: none;
     border-radius: 20px;
     padding: 10px 20px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
-
+.load-more-btn:hover {
+    background-color: #ff7f50; /* Darker orangey peach on hover */
+}
