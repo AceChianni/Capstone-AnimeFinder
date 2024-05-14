@@ -21,12 +21,6 @@ body, html {
     padding: 15px 0;
 }
 
-.navbar h1 {
-    margin: 0;
-    font-size: 24px;
-    text-align: center;
-}
-
 .navbar nav {
     text-align: center;
 }
@@ -40,6 +34,15 @@ body, html {
 
 .navbar a:hover {
     text-decoration: underline;
+}
+
+/* Main Title */
+.title {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 36px;
+    color: #0074D9;
+    margin-top: 20px;
 }
 
 /* Sidebar */
@@ -120,11 +123,11 @@ body, html {
 /* Poll */
 .poll {
     width: 250px;
-    background-color: #ffcc66; /* Changed poll background color */
+    background-color: #ff66a3; /* Changed poll background color */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #333;
+    color: #fff;
 }
 
 .poll h2 {
@@ -166,5 +169,3 @@ body, html {
 .heart-button:hover {
     background-color: #28A745;
 }
-
-/* Removed the status bar under the poll submit button */
