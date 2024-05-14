@@ -22,3 +22,16 @@ body, html {
     text-decoration: none;
     margin: 0 10px;
 }
+/* main content styles  */
+.anime-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.anime-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
