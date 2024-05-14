@@ -48,7 +48,7 @@ body {
 .anime-card {
     width: calc(20% - 20px);
     margin: 10px;
-    padding: 10px;
+    padding: 0; /* Remove padding to collapse white space */
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
@@ -56,16 +56,7 @@ body {
     text-align: center;
     cursor: pointer;
     overflow: hidden; /* Hide overflow content (description) */
-    transition: height 0.3s ease; /* Smooth transition for height change */
-}
-
-.anime-card:hover {
-    height: auto; /* Expand height on hover to show full content */
-}
-
-.anime-card h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
+    position: relative; /* Position for absolute description */
 }
 
 .anime-card img {
@@ -80,12 +71,27 @@ body {
 }
 
 .anime-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0; /* Initially hide description */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: opacity 0.3s ease; /* Smooth transition for opacity change */
 }
 
 .anime-card:hover .anime-description {
     opacity: 1; /* Show description on hover */
+}
+
+.anime-description p {
+    padding: 20px;
+    text-align: left;
+    font-size: 14px;
 }
 
 .load-more-container {
