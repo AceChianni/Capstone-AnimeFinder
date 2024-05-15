@@ -19,9 +19,9 @@ body, html {
     background-color: #ff6f61; /* Coral pink */
     padding: 10px;
     text-align: center;
-    width: 100%;
+    width: 100%; 
     display: flex;
-    justify-content: center; /* Center the navigation links */
+    justify-content: center; /* Center links */
 }
 
 .navbar a {
