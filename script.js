@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Poll functionality
     const pollForm = document.querySelector("#animePoll");
     const pollResultsContainer = document.querySelector("#pollResults");
-    const choices = {};
 
     // Update poll results display
     function updatePollResults() {
@@ -85,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Submit poll form
+    const choices = {}; // Track poll choices
     pollForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
@@ -93,9 +93,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const animeName = selectedAnime.value;
             choices[animeName] = (choices[animeName] || 0) + 1;
             updatePollResults();
-            statusBar.textContent = `Thank you for voting! Current top choice: ${animeName}`;
         } else {
-            statusBar.textContent = "Please select an anime before voting.";
+            alert("Please select an anime before voting.");
         }
     });
 });
+
