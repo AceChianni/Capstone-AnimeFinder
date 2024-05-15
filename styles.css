@@ -19,6 +19,9 @@ body, html {
     background-color: #ff6f61; /* Coral pink */
     padding: 10px;
     text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the navigation links */
 }
 
 .navbar a {
@@ -31,15 +34,6 @@ body, html {
 
 .navbar a:hover {
     text-decoration: underline;
-}
-
-/* Main Title */
-.title {
-    text-align: center;
-    font-family: 'Pacifico', cursive;
-    font-size: 36px;
-    color: #0074D9;
-    margin-top: 20px;
 }
 
 /* Sidebar */
@@ -142,17 +136,16 @@ body, html {
     margin-bottom: 5px;
 }
 
-.poll input[type="text"] {
-    width: 100%;
-    padding: 5px;
-    margin-top: 5px;
+.poll .inline-label {
+    display: inline-block;
+    width: 70%;
 }
 
-/* Adjusted width of "Other" text input */
-.poll input.small-text {
-    width: 70%;
+.poll input[type="text"].small-text {
+    display: inline-block;
+    width: 25%;
     padding: 5px;
-    margin-top: 5px;
+    margin-left: 5px;
 }
 
 /* Heart Button */
