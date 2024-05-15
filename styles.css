@@ -99,26 +99,23 @@ body, html {
 .anime-slider {
     display: flex;
     justify-content: center; /* Center slides */
-    width: 100%;
-    max-width: 800px; /* Set maximum width for responsive design */
-    height: auto; /* Adjust height based on content */
+    width: 100%; /* Full width of the container */
+    max-width: 600px; /* Adjust max-width as needed */
+    height: auto; /* Let the height adjust based on content */
     margin-top: 20px;
-    overflow: hidden; /* Ensure images don't overflow */
-    position: relative;
 }
 
 .slide {
+    width: 100%; /* Ensure each slide takes full width */
     display: none; /* Hide all slides by default */
-    position: absolute;
-    width: 100%;
 }
 
 .slide img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+    width: 100%; /* Ensure images take full width of the slide */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 8px;
 }
+
 
 /* Poll */
 .poll {
