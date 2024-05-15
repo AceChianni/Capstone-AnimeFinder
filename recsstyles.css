@@ -4,6 +4,24 @@ body, html {
     padding: 0;
     font-family: Arial, sans-serif;
 }
+/* Nav styles  */
+.navbar {
+    background-color: #ff6f61; /* Coral pink */
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
 
 /* main styles  */
 body {
@@ -20,24 +38,7 @@ body {
     margin-bottom: 20px;
 }
 
-.navbar {
-    background-color: #ff6b6b; /* Reddish navbar for contrast */
-    overflow: hidden;
-    text-align: center; /* Center-align the text within navbar */
-}
 
-.navbar a {
-    display: inline-block; /* Use inline-block to center the links */
-    color: #fff;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 16px; /* Adjust font size for better visibility */
-}
-
-.navbar a:hover {
-    background-color: #ee5253; /* Darker red on hover */
-}
 
 .anime-container {
     display: flex;
