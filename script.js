@@ -8,11 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to show a specific slide
     function showSlide(slideIndex) {
         slides.forEach((slide, index) => {
-            if (index === slideIndex) {
-                slide.style.display = "block";
-            } else {
-                slide.style.display = "none";
-            }
+            slide.style.display = index === slideIndex ? "block" : "none";
         });
     }
 
@@ -42,18 +38,17 @@ document.addEventListener("DOMContentLoaded", function() {
     showSlide(currentSlide);
     slideshowInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds 
 
-    // Event listeners for slideshow controls
+    // Event listener for slideshow controls
     slides.forEach(slide => {
-        // Click event on slide
         slide.addEventListener("click", function(event) {
             const slideWidth = slide.offsetWidth;
             const clickX = event.offsetX;
 
-            if (clickX < slideWidth * 0.3) { // Left 30% of slide
+            if (clickX < slideWidth * 0.3) {
                 prevSlide();
-            } else if (clickX > slideWidth * 0.7) { // Right 30% of slide
+            } else if (clickX > slideWidth * 0.7) {
                 nextSlide();
-            } else { // Middle 40% of slide
+            } else {
                 toggleSlideShow();
             }
         });
@@ -62,14 +57,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // Poll functionality
     const pollForm = document.querySelector("#animePoll");
     const pollResultsContainer = document.querySelector("#pollResults");
+    const choices = {}; // Track poll choices
 
     // Update poll results display
     function updatePollResults() {
         pollResultsContainer.innerHTML = "";
+
         const totalVotes = Object.values(choices).reduce((a, b) => a + b, 0);
 
         for (const option in choices) {
             const votePercentage = totalVotes > 0 ? (choices[option] / totalVotes) * 100 : 0;
+
             const resultItem = document.createElement("div");
             resultItem.classList.add("result-item");
             resultItem.textContent = `${option}: ${choices[option]} votes`;
@@ -84,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Submit poll form
-    const choices = {}; // Track poll choices
     pollForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
@@ -98,4 +95,3 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-
