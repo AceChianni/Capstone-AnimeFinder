@@ -16,7 +16,7 @@ body, html {
 
 /* Navigation Bar */
 .navbar {
-    background-color: #ffb3f7; 
+    background-color: #eo9bff; 
     padding: 10px;
     text-align: center;
     width: 100%; 
@@ -48,7 +48,7 @@ body, html {
 /* Sidebar */
 .sidebar {
     width: 250px;
-    background-color: #d1ffb3;
+    background-color: #ff9bec;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -123,7 +123,7 @@ body, html {
 /* Poll */
 .poll {
     width: 250px;
-    background-color: #b2ff80; /* Changed poll background color */
+    background-color: #ae9bff; /* Changed poll background color */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
