@@ -156,7 +156,21 @@ body, html {
     padding: 5px;
     margin-left: 5px;
 }
+/* Poll Results */
+.poll-results {
+    margin-top: 20px;
+}
 
+.result-item {
+    margin-bottom: 10px;
+}
+
+.poll-bar {
+    height: 20px;
+    background-color: #0074D9;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
 /* Heart Button */
 .heart-button {
     padding: 10px 15px;
