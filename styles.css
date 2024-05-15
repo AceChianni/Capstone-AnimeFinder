@@ -36,6 +36,15 @@ body, html {
     text-decoration: underline;
 }
 
+/* Main Title */
+.title {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 36px;
+    color: #0074D9;
+    margin-top: 20px;
+}
+
 /* Sidebar */
 .sidebar {
     width: 250px;
