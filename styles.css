@@ -19,6 +19,9 @@ body, html {
     background-color: #ff6f61; /* Coral pink */
     padding: 10px;
     text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the navigation links */
 }
 
 .navbar a {
@@ -120,22 +123,17 @@ body, html {
 /* Poll */
 .poll {
     width: 250px;
-    background-color: #ffcc66; /* Changed poll background color */
+    background-color: #ff4833; /* Changed poll background color */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #333;
+    color: #fff;
 }
 
 .poll h2 {
     font-family: 'Comic Sans MS', cursive;
     font-size: 20px;
     margin-bottom: 15px;
-}
-
-.poll p {
-    font-size: 14px;
-    margin-bottom: 10px;
 }
 
 .poll form {
@@ -147,10 +145,16 @@ body, html {
     margin-bottom: 5px;
 }
 
-.poll input[type="text"] {
-    width: 100%;
+.poll .inline-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.poll input[type="text"].small-text {
+    width: 50%; /* Increased width */
     padding: 5px;
-    margin-top: 5px;
+    margin-left: 5px;
 }
 
 /* Heart Button */
@@ -170,19 +174,4 @@ body, html {
 
 .heart-button:hover {
     background-color: #28A745;
-}
-
-/* Poll Results */
-#pollResults {
-    margin-top: 20px;
-}
-
-.result-item {
-    margin-bottom: 10px;
-}
-
-.poll-bar {
-    height: 20px;
-    background-color: #0074D9; /* Blue bar color */
-    border-radius: 4px;
 }
