@@ -7,20 +7,21 @@ body, html {
 
 /* Navigation Bar */
 .navbar {
-    background-color: #003366; /* Dark blue navbar */
-    color: white;
-    padding: 10px 20px;
-}
-
-.navbar nav {
-    display: flex;
-    justify-content: center;
+    background-color: #ff6f61; /* Coral pink */
+    padding: 10px;
+    text-align: center;
 }
 
 .navbar a {
-    color: white;
+    color: #fff;
     text-decoration: none;
     margin: 0 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
 }
 
 /* Main Content */
