@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 document.addEventListener("DOMContentLoaded", function() {
     const slides = document.querySelectorAll(".slide");
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Event listeners for slideshow controls
     slides.forEach(slide => {
-        // Click event on left part of slide (previous slide)
+        // Click event on slide
         slide.addEventListener("click", function(event) {
             const slideWidth = slide.offsetWidth;
             const clickX = event.offsetX;
@@ -59,18 +59,41 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Update poll status bar based on votes
+    // Poll functionality
     const pollForm = document.querySelector("#animePoll");
-    const statusBar = document.querySelector("#pollStatusBar");
+    const pollResultsContainer = document.querySelector("#pollResults");
+    const choices = {};
 
+    // Update poll results display
+    function updatePollResults() {
+        pollResultsContainer.innerHTML = "";
+        const totalVotes = Object.values(choices).reduce((a, b) => a + b, 0);
+
+        for (const option in choices) {
+            const votePercentage = totalVotes > 0 ? (choices[option] / totalVotes) * 100 : 0;
+            const resultItem = document.createElement("div");
+            resultItem.classList.add("result-item");
+            resultItem.textContent = `${option}: ${choices[option]} votes`;
+
+            const pollBar = document.createElement("div");
+            pollBar.classList.add("poll-bar");
+            pollBar.style.width = `${votePercentage}%`;
+
+            resultItem.appendChild(pollBar);
+            pollResultsContainer.appendChild(resultItem);
+        }
+    }
+
+    // Submit poll form
     pollForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
         const selectedAnime = pollForm.querySelector('input[name="anime"]:checked');
         if (selectedAnime) {
             const animeName = selectedAnime.value;
-            const statusBarText = `Thank you for voting! Current top choice: ${animeName}`;
-            statusBar.textContent = statusBarText;
+            choices[animeName] = (choices[animeName] || 0) + 1;
+            updatePollResults();
+            statusBar.textContent = `Thank you for voting! Current top choice: ${animeName}`;
         } else {
             statusBar.textContent = "Please select an anime before voting.";
         }
