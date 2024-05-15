@@ -167,7 +167,7 @@ body, html {
 
 .poll-bar {
     height: 20px;
-    background-color: #0074D9;
+    background-color: #ff4833;
     border-radius: 4px;
     transition: width 0.3s ease;
 }
