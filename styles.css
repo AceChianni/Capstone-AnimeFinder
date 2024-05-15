@@ -120,6 +120,14 @@ body, html {
     border-radius: 8px;
 }
 
+.anime-heading {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333; /* Text color */
+    margin-top: 20px; /* Adjust spacing from the top */
+}
+
+
 /* Poll */
 .poll {
     width: 250px;
