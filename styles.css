@@ -86,7 +86,7 @@ body, html {
 /* Content */
 .content {
     flex: 1;
-    background-color: #2ECC40;
+    background-color: rgba(255,255,255,0.5);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -120,7 +120,7 @@ body, html {
 /* Poll */
 .poll {
     width: 250px;
-    background-color: #ff66a3; /* Changed poll background color */
+    background-color: #ff4833; /* Changed poll background color */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -144,6 +144,13 @@ body, html {
 
 .poll input[type="text"] {
     width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+/* Adjusted width of "Other" text input */
+.poll input.small-text {
+    width: 70%;
     padding: 5px;
     margin-top: 5px;
 }
