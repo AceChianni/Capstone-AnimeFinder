@@ -120,9 +120,13 @@ body, html {
     border-radius: 8px;
 }
 
+/* Content Area - Anime Slideshow */
+.content {
+    text-align: center; /* Center align content */
+}
+
 .anime-heading {
-    text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /* Specify sans-serif font */
     color: #333; /* Text color */
     margin-top: 20px; /* Adjust spacing from the top */
 }
