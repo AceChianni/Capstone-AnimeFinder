@@ -120,11 +120,11 @@ body, html {
 /* Poll */
 .poll {
     width: 250px;
-    background-color: #ff4833; /* Changed poll background color */
+    background-color: #ffcc66; /* Changed poll background color */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #fff;
+    color: #333;
 }
 
 .poll h2 {
@@ -147,9 +147,8 @@ body, html {
     margin-bottom: 5px;
 }
 
-.poll input[type="text"],
-.poll input[type="radio"] {
-    width: calc(100% - 20px); /* Adjusted width of text and radio inputs */
+.poll input[type="text"] {
+    width: 100%;
     padding: 5px;
     margin-top: 5px;
 }
