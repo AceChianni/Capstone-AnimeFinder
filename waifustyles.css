@@ -1,7 +1,28 @@
+/* Navigation Bar */
+.navbar {
+    background-color: #ffe1b3; 
+    padding: 10px;
+    text-align: center;
+    width: 100%; 
+}
+
+.navbar a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* main content area  */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,8 +31,8 @@ body {
 }
 
 header {
-    background-color: #ff6b6b;
-    color: white;
+    background-color: #1f1f1f; /* Darker header background */
+    color: #ff6b6b; /* Contrasting text color */
     padding: 1rem 0;
     width: 100%;
     text-align: center;
@@ -37,7 +58,7 @@ main {
     height: 300px;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Adjust shadow for dark background */
 }
 
 button {
