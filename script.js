@@ -1,39 +1,70 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function() {
-    let currentSlide = 0;
     const slidesContainer = document.getElementById('slides');
+    let currentSlide = 0;
 
-    // Fetch the data from Anime News Network
-    async function fetchAnimeData() {
-        const response = await fetch('https://www.animenewsnetwork.com/preview-guide/2024/spring/.208262');
-        const text = await response.text();
+    // Function to fetch XML data
+    async function fetchXMLData(url) {
+        const response = await fetch(url);
+        const textData = await response.text();
         const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        const animeList = Array.from(doc.querySelectorAll('.encyc-data-row'));
+        return parser.parseFromString(textData, "application/xml");
+    }
 
+    // Function to convert XML data to JSON format
+    function xmlToJson(xml) {
+        const obj = {};
+        if (xml.nodeType === 1) { // element
+            if (xml.attributes.length > 0) {
+                obj["@attributes"] = {};
+                for (let j = 0; j < xml.attributes.length; j++) {
+                    const attribute = xml.attributes.item(j);
+                    obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+                }
+            }
+        } else if (xml.nodeType === 3) { // text
+            obj = xml.nodeValue;
+        }
+
+        if (xml.hasChildNodes()) {
+            for(let i = 0; i < xml.childNodes.length; i++) {
+                const item = xml.childNodes.item(i);
+                const nodeName = item.nodeName;
+                if (typeof(obj[nodeName]) === "undefined") {
+                    obj[nodeName] = xmlToJson(item);
+                } else {
+                    if (typeof(obj[nodeName].push) === "undefined") {
+                        const old = obj[nodeName];
+                        obj[nodeName] = [];
+                        obj[nodeName].push(old);
+                    }
+                    obj[nodeName].push(xmlToJson(item));
+                }
+            }
+        }
+        return obj;
+    }
+
+    // Function to create slides from data
+    function createSlides(data) {
+        const animeList = data.report.item; // Adjust based on actual XML structure
         animeList.forEach((anime, index) => {
-            const title = anime.querySelector('.encyc-title').textContent.trim();
-            const description = anime.querySelector('.encyc-description').textContent.trim();
-
             const slide = document.createElement('div');
             slide.classList.add('slide');
             slide.innerHTML = `
-                <h2>${title}</h2>
-                <p>${description}</p>
+                <h2>${anime.name}</h2>
+                <img src="${anime.image}" alt="${anime.name}">
+                <p>${anime.description}</p>
             `;
-
             if (index === 0) {
                 slide.style.display = 'block';
             }
-
             slidesContainer.appendChild(slide);
         });
-
-        showSlide(currentSlide);
     }
 
-    // Show the specific slide
+    // Function to show a specific slide
     function showSlide(slideIndex) {
         const slides = document.querySelectorAll('.slide');
         if (slideIndex >= slides.length) {
@@ -54,7 +85,14 @@ document.addEventListener("DOMContentLoaded", function() {
         showSlide(currentSlide + n);
     }
 
-    fetchAnimeData();
+    // Fetch and display data
+    const url = "https://www.animenewsnetwork.com/encyclopedia/reports.xml?id=155&nskip=0&nlist=10"; // Adjust based on actual URL and parameters
+    fetchXMLData(url).then(xmlData => {
+        const jsonData = xmlToJson(xmlData);
+        createSlides(jsonData);
+    }).catch(error => console.error("Failed to fetch data:", error));
+
+    showSlide(currentSlide);
 });
 
 
