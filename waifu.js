@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentType = '';
     let currentCategory = '';
 
-    // Show category buttons based on selected type (SFW or NSFW)
+    // Event listener for type buttons (SFW or NSFW)
     typeButtons.addEventListener('click', function(event) {
         if (event.target.classList.contains('typeButton')) {
             currentType = event.target.getAttribute('data-type');
@@ -18,9 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Show category buttons based on selected type (SFW or NSFW)
+    // Function to show category buttons based on selected type
     function showCategoryButtons(type) {
         categoryButtonsContainer.style.display = 'block';
+        categoryButtonsContainer.innerHTML = ''; // Clear existing buttons
+
         const categories = (type === 'sfw') ?
             ['waifu', 'neko', 'shinobu', 'megumin', 'bully', 'cuddle', 'cry', 'hug', 'awoo', 'kiss', 'lick', 'pat', 'smug', 'bonk', 'yeet', 'blush', 'smile', 'wave', 'highfive', 'handhold', 'nom', 'bite', 'glomp', 'slap', 'kill', 'kick', 'happy', 'wink', 'poke', 'dance', 'cringe'] :
             ['waifu', 'neko', 'trap', 'blowjob'];
@@ -34,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Load images based on selected category
+    // Event listener for category buttons
     categoryButtonsContainer.addEventListener('click', function(event) {
         if (event.target.classList.contains('categoryButton')) {
             currentCategory = event.target.getAttribute('data-category');
@@ -43,12 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Load more images when "More! ❤" button is clicked
+    // Event listener for "Load More" button
     loadMoreButton.addEventListener('click', function() {
         loadImages(5); // Load next set of images
     });
 
-    // Reset selection and show type buttons again
+    // Event listener for "Reset" button
     resetButton.addEventListener('click', function() {
         typeButtons.style.display = 'block';
         categoryButtonsContainer.style.display = 'none';
@@ -60,7 +62,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to load images from the API
     const loadImages = async (count) => {
         try {
-            const response = await fetch(`https://api.waifu.pics/${currentType}/${currentCategory}`);
+            const apiUrl = `https://api.waifu.pics/${currentType}/${currentCategory}`;
+            console.log('API URL:', apiUrl); // Log API URL for debugging
+
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error('Network response was not ok.');
+            }
+
             const data = await response.json();
             const images = data.files.slice(imagesLoaded, imagesLoaded + count);
 
@@ -72,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             imagesLoaded += count;
-            loadMoreButton.style.display = 'block'; // Show the "More! ❤" button after images are loaded
+            loadMoreButton.style.display = 'block'; // Show the "Load More" button after images are loaded
         } catch (error) {
             console.error('Error fetching images:', error);
         }
@@ -82,6 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const clearGallery = () => {
         gallery.innerHTML = '';
         imagesLoaded = 0;
-        loadMoreButton.style.display = 'none'; // Hide "More! ❤" button when gallery is cleared
+        loadMoreButton.style.display = 'none'; // Hide "Load More" button when gallery is cleared
     };
 });
