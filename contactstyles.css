@@ -1,8 +1,17 @@
+/* Define color variables for better maintainability */
+:root {
+    --pink: #FF9BEC;
+    --teal: #5DD9C1;
+    --purple: #5B507A;
+    --light-purple: #AE9BFF;
+    --peach: #FFE1B3;
+}
+
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #FFE5B4; /* Orangey peach color */
-    color: #333;
+    background-color: var(--peach);
+    color: var(--purple);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,7 +29,7 @@ body {
 h1 {
     text-align: center;
     font-size: 36px;
-    color: #ff6f61; /* Coral pink */
+    color: var(--pink);
 }
 
 form {
@@ -36,7 +45,7 @@ form {
 
 label {
     font-weight: bold;
-    color: #ff6f61; /* Coral pink */
+    color: var(--pink);
     margin-bottom: 5px;
 }
 
@@ -46,7 +55,7 @@ input[type="tel"],
 textarea {
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--light-purple);
     border-radius: 4px;
     width: 100%;
     box-sizing: border-box;
@@ -55,10 +64,10 @@ textarea {
 button {
     padding: 12px 20px;
     font-size: 16px;
-    background-color: #ff6f61; /* Coral pink */
+    background-color: var(--pink);
     color: #fff;
     border: none;
-    border-radius: 50px; /* Rounded shape */
+    border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     align-self: center;
@@ -66,11 +75,11 @@ button {
 }
 
 button:hover {
-    background-color: #d9544d; /* Darker coral pink on hover */
+    background-color: var(--teal);
 }
 
 .navbar {
-    background-color: #ff6f61; /* Coral pink */
+    background-color: var(--purple);
     padding: 10px;
     text-align: center;
 }
