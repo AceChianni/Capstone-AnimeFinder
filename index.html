@@ -36,17 +36,11 @@
         <!-- Content Area - Anime Slideshow -->
         <section class="content">
             <h2 class="anime-heading">Hottest Anime of the Season</h2>
-            <div class="anime-slider">
-                <div class="slide">
-                    <img src="https://via.placeholder.com/400x600/66ccff/333333?text=Anime+1" alt="Anime 1">
-                </div>
-                <div class="slide">
-                    <img src="https://via.placeholder.com/400x600/ff66a3/333333?text=Anime+2" alt="Anime 2">
-                </div>
-                <div class="slide">
-                    <img src="https://via.placeholder.com/400x600/66ccff/333333?text=Anime+3" alt="Anime 3">
-                </div>
-            </div>
+            <div class="slideshow-container">
+        <div id="slides" class="slides"></div>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
         </section>
 
         <!-- Poll - Best Starting Anime -->
