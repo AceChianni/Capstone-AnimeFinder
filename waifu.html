@@ -17,15 +17,12 @@
     </nav>
     <h1>Waifu Pics Gallery</h1>
     <main>
-        <div>
-            <label for="category">Select Category:</label>
-            <select id="category">
-                <option value="sfw">SFW</option>
-                <option value="nsfw">NSFW</option>
-            </select>
-            <button id="loadMoreButton">More! ❤</button>
+        <div id="categoryButtons">
+            <button class="categoryButton" data-category="sfw">SFW</button>
+            <button class="categoryButton" data-category="nsfw">NSFW</button>
         </div>
         <div class="gallery" id="gallery"></div>
+        <button id="loadMoreButton">More! ❤</button>
     </main>
     <script src="waifu.js"></script>
 </body>
