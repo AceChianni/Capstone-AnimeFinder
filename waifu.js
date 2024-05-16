@@ -1,4 +1,6 @@
 "use strict";
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const gallery = document.getElementById('gallery');
     const loadMoreButton = document.getElementById('loadMoreButton');
@@ -62,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to load images from the API
     const loadImages = async (count) => {
         try {
-            const apiUrl = `https://api.waifu.pics/${currentType}/${currentCategory}`;
+            const apiUrl = `https://api.waifu.pics/many/${currentType}/${currentCategory}`;
             console.log('API URL:', apiUrl); // Log API URL for debugging
 
             const response = await fetch(apiUrl);
