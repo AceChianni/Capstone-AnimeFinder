@@ -1,6 +1,5 @@
 "use strict";
 
-
 document.addEventListener('DOMContentLoaded', function() {
     const gallery = document.getElementById('gallery');
     const loadMoreButton = document.getElementById('loadMoreButton');
@@ -64,10 +63,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to load images from the API
     const loadImages = async (count) => {
         try {
-            const apiUrl = `https://api.waifu.pics/many/${currentType}/${currentCategory}`;
+            const apiUrl = `https://waifu.pics/api/many/${currentType}/${currentCategory}`;
             console.log('API URL:', apiUrl); // Log API URL for debugging
 
-            const response = await fetch(apiUrl);
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    type: currentType,
+                    category: currentCategory
+                })
+            });
+
             if (!response.ok) {
                 throw new Error('Network response was not ok.');
             }
@@ -84,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             imagesLoaded += count;
             loadMoreButton.style.display = 'block'; // Show the "Load More" button after images are loaded
+            resetButton.style.display = 'block'; // Show the "Reset" button after images are loaded
         } catch (error) {
             console.error('Error fetching images:', error);
         }
@@ -94,5 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
         gallery.innerHTML = '';
         imagesLoaded = 0;
         loadMoreButton.style.display = 'none'; // Hide "Load More" button when gallery is cleared
+        resetButton.style.display = 'none'; // Hide "Reset" button when gallery is cleared
     };
 });
