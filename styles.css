@@ -3,7 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #302f3a; /* Darkened background color */
+    background-color: #F9DEC9; /* Darkened background color */
     color: #eee; /* Light text color */
 }
 
@@ -65,7 +65,7 @@ body, html {
     font-family: 'Comic Sans MS', cursive;
     font-size: 20px;
     margin-bottom: 15px;
-    color: #AE9BFF; /* Color for sidebar h2 */
+    color: #FFD166; /* Color for sidebar h2 */
 }
 
 .sidebar ul {
