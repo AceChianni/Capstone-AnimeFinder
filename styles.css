@@ -3,8 +3,8 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #302f3a; /* Darkened background color */
+    color: #eee; /* Light text color */
 }
 
 /* Container */
@@ -16,14 +16,14 @@ body, html {
 
 /* Navigation Bar */
 .navbar {
-    background-color: #ffe1b3; 
+    background-color: #5B507A; /* Updated navigation background color */
     padding: 10px;
     text-align: center;
     width: 100%; 
 }
 
 .navbar a {
-    color: #333;
+    color: #eee; /* Light text color for nav links */
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
@@ -39,7 +39,7 @@ body, html {
     text-align: center;
     font-family: 'Pacifico', cursive;
     font-size: 36px;
-    color: #0074D9;
+    color: #5DD9C1; /* Updated title color */
     margin-top: 20px;
 }
 
@@ -54,7 +54,7 @@ body, html {
 /* Sidebar */
 .sidebar {
     width: 250px;
-    background-color: #ff9bec;
+    background-color: #FF9BEC; /* Updated sidebar background color */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -65,6 +65,7 @@ body, html {
     font-family: 'Comic Sans MS', cursive;
     font-size: 20px;
     margin-bottom: 15px;
+    color: #AE9BFF; /* Color for sidebar h2 */
 }
 
 .sidebar ul {
@@ -91,7 +92,7 @@ body, html {
 
 .anime-heading {
     font-family: Arial, sans-serif;
-    color: #333;
+    color: #eee; /* Light text color */
     margin-top: 20px;
 }
 
@@ -119,7 +120,7 @@ body, html {
 /* Poll */
 .poll {
     width: 250px;
-    background-color: #ae9bff;
+    background-color: #AE9BFF; /* Updated poll background color */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -131,6 +132,7 @@ body, html {
     font-family: 'Comic Sans MS', cursive;
     font-size: 20px;
     margin-bottom: 15px;
+    color: #FFE1B3; /* Color for poll h2 */
 }
 
 .poll form {
@@ -173,7 +175,7 @@ body, html {
 /* Heart Button */
 .heart-button {
     padding: 10px 15px;
-    background-color: #ffe1b3;
+    background-color: #FFE1B3; /* Original heart button color */
     color: white;
     border: none;
     cursor: pointer;
