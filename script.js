@@ -1,58 +1,116 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function() {
-    const slides = document.querySelectorAll(".slide");
     let currentSlide = 0;
-    let slideshowInterval;
+    const slidesContainer = document.getElementById('slides');
 
-    // Function to show a specific slide
-    function showSlide(slideIndex) {
-        slides.forEach((slide, index) => {
-            slide.style.display = index === slideIndex ? "block" : "none";
-        });
-    }
+    // Fetch the data from Anime News Network
+    async function fetchAnimeData() {
+        const response = await fetch('https://www.animenewsnetwork.com/preview-guide/2024/spring/.208262');
+        const text = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const animeList = Array.from(doc.querySelectorAll('.encyc-data-row'));
 
-    // Function to show the next slide
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
+        animeList.forEach((anime, index) => {
+            const title = anime.querySelector('.encyc-title').textContent.trim();
+            const description = anime.querySelector('.encyc-description').textContent.trim();
 
-    // Function to show the previous slide
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    }
+            const slide = document.createElement('div');
+            slide.classList.add('slide');
+            slide.innerHTML = `
+                <h2>${title}</h2>
+                <p>${description}</p>
+            `;
 
-    // Function to toggle slideshow play/pause
-    function toggleSlideShow() {
-        if (slideshowInterval) {
-            clearInterval(slideshowInterval);
-            slideshowInterval = null;
-        } else {
-            slideshowInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
-        }
-    }
-
-    // Initial setup: show the first slide and start slideshow
-    showSlide(currentSlide);
-    slideshowInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds 
-
-    // Event listener for slideshow controls
-    slides.forEach(slide => {
-        slide.addEventListener("click", function(event) {
-            const slideWidth = slide.offsetWidth;
-            const clickX = event.offsetX;
-
-            if (clickX < slideWidth * 0.3) {
-                prevSlide();
-            } else if (clickX > slideWidth * 0.7) {
-                nextSlide();
-            } else {
-                toggleSlideShow();
+            if (index === 0) {
+                slide.style.display = 'block';
             }
+
+            slidesContainer.appendChild(slide);
         });
-    });
+
+        showSlide(currentSlide);
+    }
+
+    // Show the specific slide
+    function showSlide(slideIndex) {
+        const slides = document.querySelectorAll('.slide');
+        if (slideIndex >= slides.length) {
+            currentSlide = 0;
+        } else if (slideIndex < 0) {
+            currentSlide = slides.length - 1;
+        } else {
+            currentSlide = slideIndex;
+        }
+
+        slides.forEach((slide, index) => {
+            slide.style.display = index === currentSlide ? 'block' : 'none';
+        });
+    }
+
+    // Change slide
+    window.changeSlide = function(n) {
+        showSlide(currentSlide + n);
+    }
+
+    fetchAnimeData();
+});
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     const slides = document.querySelectorAll(".slide");
+//     let currentSlide = 0;
+//     let slideshowInterval;
+
+//     // Function to show a specific slide
+//     function showSlide(slideIndex) {
+//         slides.forEach((slide, index) => {
+//             slide.style.display = index === slideIndex ? "block" : "none";
+//         });
+//     }
+
+//     // Function to show the next slide
+//     function nextSlide() {
+//         currentSlide = (currentSlide + 1) % slides.length;
+//         showSlide(currentSlide);
+//     }
+
+//     // Function to show the previous slide
+//     function prevSlide() {
+//         currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+//         showSlide(currentSlide);
+//     }
+
+//     // Function to toggle slideshow play/pause
+//     function toggleSlideShow() {
+//         if (slideshowInterval) {
+//             clearInterval(slideshowInterval);
+//             slideshowInterval = null;
+//         } else {
+//             slideshowInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+//         }
+//     }
+
+//     // Initial setup: show the first slide and start slideshow
+//     showSlide(currentSlide);
+//     slideshowInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds 
+
+//     // Event listener for slideshow controls
+//     slides.forEach(slide => {
+//         slide.addEventListener("click", function(event) {
+//             const slideWidth = slide.offsetWidth;
+//             const clickX = event.offsetX;
+
+//             if (clickX < slideWidth * 0.3) {
+//                 prevSlide();
+//             } else if (clickX > slideWidth * 0.7) {
+//                 nextSlide();
+//             } else {
+//                 toggleSlideShow();
+//             }
+//         });
+//     });
 
     // Poll functionality
     const pollForm = document.querySelector("#animePoll");
