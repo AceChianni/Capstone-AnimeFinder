@@ -16,19 +16,17 @@
         <a href="#waifu">Waifu</a>
     </nav>
   <h1>Waifu Pics Gallery</h1>
-    <main>
-        <div id="categoryButtons">
-            <button class="categoryButton" data-type="sfw" data-category="waifu">SFW: Waifu</button>
-            <button class="categoryButton" data-type="sfw" data-category="neko">SFW: Neko</button>
-            <!-- Add more SFW categories here -->
-            <button class="categoryButton" data-type="nsfw" data-category="waifu">NSFW: Waifu</button>
-            <button class="categoryButton" data-type="nsfw" data-category="neko">NSFW: Neko</button>
-            <button class="categoryButton" data-type="nsfw" data-category="trap">NSFW: Trap</button>
-            <button class="categoryButton" data-type="nsfw" data-category="blowjob">NSFW: Blowjob</button>
-            <!-- Add more NSFW categories here -->
+  <main>
+        <div id="typeButtons">
+            <button class="typeButton" data-type="sfw">SFW</button>
+            <button class="typeButton" data-type="nsfw">NSFW</button>
+        </div>
+        <div id="categoryButtons" style="display: none;">
+            <!-- Category buttons will be dynamically populated -->
         </div>
         <div class="gallery" id="gallery"></div>
         <button id="loadMoreButton" style="display: none;">More! ❤</button>
+        <button id="resetButton" style="display: none;">Reset</button>
     </main>
     <script src="waifu.js"></script>
 </body>
