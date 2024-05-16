@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const gallery = document.getElementById('gallery');
     const loadMoreButton = document.getElementById('loadMoreButton');
-    const categoryButtonsContainer = document.getElementById('categoryButtons');
+    const categoryButtons = document.querySelectorAll('.categoryButton');
     let imagesLoaded = 0;
     let currentCategory = '';
     let currentType = '';
@@ -34,52 +34,22 @@ document.addEventListener('DOMContentLoaded', function() {
         loadMoreButton.style.display = 'none'; // Hide "More! ❤" button when gallery is cleared
     };
 
-    // SFW and NSFW categories lists
-    const sfwCategories = [
-        'megumin', 'bully', 'cuddle', 'cry', 'hug', 'awoo', 'kiss', 'lick', 'pat', 
-        'smug', 'bonk', 'yeet', 'blush', 'smile', 'wave', 'highfive', 'handhold', 
-        'nom', 'bite', 'glomp', 'slap', 'kill', 'kick', 'happy', 'wink', 'poke', 'dance', 'cringe'
-    ];
-
-    const nsfwCategories = ['waifu', 'neko', 'trap', 'blowjob'];
-
-    // Dynamically create SFW category buttons
-    sfwCategories.forEach(category => {
-        const button = createCategoryButton('sfw', category);
-        categoryButtonsContainer.appendChild(button);
-    });
-
-    // Dynamically create NSFW category buttons
-    nsfwCategories.forEach(category => {
-        const button = createCategoryButton('nsfw', category);
-        categoryButtonsContainer.appendChild(button);
-    });
-
-    function createCategoryButton(type, category) {
-        const button = document.createElement('button');
-        button.className = 'categoryButton';
-        button.setAttribute('data-type', type);
-        button.setAttribute('data-category', category);
-        button.textContent = category.charAt(0).toUpperCase() + category.slice(1); // Capitalize the category name
-        return button;
-    }
-
     // Event listener for category buttons
-    categoryButtonsContainer.addEventListener('click', function(event) {
-        if (event.target.classList.contains('categoryButton')) {
-            const type = event.target.getAttribute('data-type');
-            const category = event.target.getAttribute('data-category');
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const type = this.getAttribute('data-type');
+            const category = this.getAttribute('data-category');
             if (type !== currentType || category !== currentCategory) {
                 clearGallery(); // Clear existing images if category changes
                 currentType = type;
                 currentCategory = category;
-                loadImages(5); // Load images for the selected category
+                loadImages(5); // Load initial set of images
             }
-        }
+        });
     });
 
     // Load more images when "More! ❤" button is clicked
     loadMoreButton.addEventListener('click', function() {
-        loadImages(5);
+        loadImages(5); // Load next set of images
     });
 });
