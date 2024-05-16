@@ -181,4 +181,4 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Please select an anime before voting.");
         }
     });
-});
+);
