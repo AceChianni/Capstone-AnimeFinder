@@ -78,7 +78,7 @@ body {
     opacity: 1;
 }
 
-.anime-description {
+/* .anime-description {
     position: absolute;
     top: 0;
     left: 0;
@@ -90,6 +90,23 @@ body {
     justify-content: center;
     align-items: center;
     overflow: auto;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+} */
+
+.anime-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Initially hide description */
+    background-color: rgba(255, 225, 179, 0.9); /* Light orange background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* Enable vertical scrollbar */
     transition: opacity 0.3s ease;
     padding: 20px;
     box-sizing: border-box;
