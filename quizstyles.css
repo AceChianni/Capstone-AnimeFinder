@@ -71,6 +71,7 @@ input[type="radio"] {
 }
 
 button {
+    position: relative;
     padding: 12px 24px;
     font-size: 18px;
     background-color: #AE9BFF; /* Lavender button */
@@ -79,7 +80,6 @@ button {
     border-radius: 50px; /* Round button */
     cursor: pointer;
     transition: background-color 0.3s ease;
-    position: relative;
 }
 
 button:hover {
@@ -89,7 +89,6 @@ button:hover {
 /* Heart-shaped button */
 button::before {
     content: '\2665'; /* Unicode for heart symbol */
-    display: inline-block;
     font-size: 24px;
     position: absolute;
     top: 50%;
@@ -97,6 +96,16 @@ button::before {
     transform: translateY(-50%); /* Center vertically */
     color: white;
 }
+
+/* Adjust text padding to avoid overlap with heart icon */
+button.next {
+    padding-left: 40px; /* Increase left padding for next button */
+}
+
+button.reset {
+    padding-left: 40px; /* Increase left padding for reset button */
+}
+
 
 #recommendationContainer {
     margin-top: 40px;
