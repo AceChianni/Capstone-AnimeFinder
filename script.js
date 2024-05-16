@@ -1,16 +1,13 @@
 "use strict";
-
-"use strict";
-
 document.addEventListener("DOMContentLoaded", function() {
     const animeSlider = document.querySelector(".anime-slider");
 
-    // Function to fetch anime data from Shikimori API
+    // Function to fetch anime data from Jikan API
     async function fetchAnimeData() {
         try {
-            const response = await fetch("https://shikimori.one/api/animes");
+            const response = await fetch("https://api.jikan.moe/v3/top/anime/1/bypopularity");
             const data = await response.json();
-            return data;
+            return data.top; // Use the 'top' array from the response
         } catch (error) {
             console.error("Error fetching anime data:", error);
             return []; // Return empty array in case of error
@@ -24,14 +21,14 @@ document.addEventListener("DOMContentLoaded", function() {
         // Clear existing slides
         animeSlider.innerHTML = "";
 
-        // Display fetched images in slideshow
+        // Display fetched images in slideshow (up to 3 images)
         animeData.slice(0, 3).forEach(anime => {
             const slide = document.createElement("div");
             slide.classList.add("slide");
             
             const image = document.createElement("img");
-            image.src = anime.image.original; // Assuming 'image' property exists in anime data
-            image.alt = anime.name;
+            image.src = anime.image_url;
+            image.alt = anime.title;
             
             slide.appendChild(image);
             animeSlider.appendChild(slide);
