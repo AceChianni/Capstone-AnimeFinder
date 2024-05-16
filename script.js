@@ -72,66 +72,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initial setup: fetch and update anime slideshow
     updateAnimeSlideshow();
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     const slides = document.querySelectorAll(".slide");
-//     let currentSlide = 0;
-//     let slideshowInterval;
-
-//     // Function to show a specific slide
-//     function showSlide(slideIndex) {
-//         slides.forEach((slide, index) => {
-//             slide.style.display = index === slideIndex ? "block" : "none";
-//         });
-//     }
-
-//     // Function to show the next slide
-//     function nextSlide() {
-//         currentSlide = (currentSlide + 1) % slides.length;
-//         showSlide(currentSlide);
-//     }
-
-//     // Function to show the previous slide
-//     function prevSlide() {
-//         currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-//         showSlide(currentSlide);
-//     }
-
-//     // Function to toggle slideshow play/pause
-//     function toggleSlideShow() {
-//         if (slideshowInterval) {
-//             clearInterval(slideshowInterval);
-//             slideshowInterval = null;
-//         } else {
-//             slideshowInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
-//         }
-//     }
-
-//     // Initial setup: show the first slide and start slideshow
-//     showSlide(currentSlide);
-//     slideshowInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds 
-
-//     // Event listener for slideshow controls
-//     slides.forEach(slide => {
-//         slide.addEventListener("click", function(event) {
-//             const slideWidth = slide.offsetWidth;
-//             const clickX = event.offsetX;
-
-//             if (clickX < slideWidth * 0.3) {
-//                 prevSlide();
-//             } else if (clickX > slideWidth * 0.7) {
-//                 nextSlide();
-//             } else {
-//                 toggleSlideShow();
-//             }
-//         });
-//     });
-
-    // Poll functionality
+    // Poll functionality (kept from original code)
     const pollForm = document.querySelector("#animePoll");
     const pollResultsContainer = document.querySelector("#pollResults");
     const choices = {}; // Track poll choices
 
-    // Update poll results display
+    // Update poll results display (kept from original code)
     function updatePollResults() {
         pollResultsContainer.innerHTML = "";
 
@@ -153,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Submit poll form
+    // Submit poll form (kept from original code)
     pollForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
@@ -166,4 +112,4 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Please select an anime before voting.");
         }
     });
-);
+});
