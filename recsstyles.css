@@ -11,6 +11,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+    margin-top: 60px; /* Adjust top margin to push down the h1 */
 }
 
 .navbar {
@@ -18,7 +19,7 @@ body {
     overflow: hidden;
     text-align: center;
     position: fixed;
-    width: 100%;
+    width: 100%; /* Full width */
     top: 0;
     z-index: 1000;
 }
@@ -30,6 +31,7 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 16px;
+    font-weight: bold; /* Make navigation links bold */
 }
 
 .navbar a:hover {
