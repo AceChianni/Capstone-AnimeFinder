@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             imagesLoaded += count;
+
+            // Show the "More! ❤" button after images are loaded
+            loadMoreButton.style.display = 'block';
         } catch (error) {
             console.error('Error fetching images:', error);
         }
@@ -29,15 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const clearGallery = () => {
         gallery.innerHTML = '';
         imagesLoaded = 0;
+        loadMoreButton.style.display = 'none'; // Hide "More! ❤" button when gallery is cleared
     };
 
-    // Load initial images
+    // Load initial images on page load
     loadImages(5);
-
-    // Load more images when "More! ❤" button is clicked
-    loadMoreButton.addEventListener('click', function() {
-        loadImages(5);
-    });
 
     // Event listener for category buttons
     categoryButtons.forEach(button => {
@@ -50,4 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Load more images when "More! ❤" button is clicked
+    loadMoreButton.addEventListener('click', function() {
+        loadImages(5);
+    });
 });
+
