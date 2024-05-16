@@ -1,35 +1,10 @@
-/* Resetting default margin and padding */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-/* Nav styles  */
-.navbar {
-    background-color: #ff6f61; /* Coral pink */
-    padding: 10px;
-    text-align: center;
-}
-
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-}
-
-/* main styles  */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #ffb347; /* Orangey peach background */
-    color: #333; /* Dark text color for contrast */
+    background-color: #5b507a; /* Dark purple background */
+    color: #fff; /* White text color for contrast */
     padding: 20px;
     text-align: center;
+    margin: 0;
 }
 
 .page-title {
@@ -38,13 +13,35 @@ body {
     margin-bottom: 20px;
 }
 
+.navbar {
+    background-color: #ae9bff; /* Light purple navbar */
+    overflow: hidden;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
 
+.navbar a {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    background-color: #9b79ff; /* Darker purple on hover */
+}
 
 .anime-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 80px;
+    padding-top: 20px;
 }
 
 .anime-card {
@@ -53,27 +50,27 @@ body {
     padding: 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #ff9bec; /* Light pink background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     text-align: center;
     cursor: pointer;
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensures title is at the top and image aligns at the bottom */
+    justify-content: space-between;
 }
 
 .anime-card img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    transition: transform 0.3s ease; /* Smooth transform on hover */
-    flex-grow: 1; /* Ensure the image takes up remaining space */
+    transition: transform 0.3s ease;
+    flex-grow: 1;
 }
 
 .anime-card:hover img {
-    transform: scale(1.1); /* Scale up image on hover */
+    transform: scale(1.1);
 }
 
 .anime-description {
@@ -82,25 +79,26 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0; /* Initially hide description */
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    opacity: 0;
+    background-color: rgba(255, 225, 179, 0.9); /* Light orange background */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: auto; /* Add scrollbar for overflow text */
-    transition: opacity 0.3s ease; /* Smooth transition for opacity change */
+    overflow: auto;
+    transition: opacity 0.3s ease;
     padding: 20px;
-    box-sizing: border-box; /* Ensure padding is included in the height */
+    box-sizing: border-box;
 }
 
 .anime-card:hover .anime-description {
-    opacity: 1; /* Show description on hover */
+    opacity: 1;
 }
 
 .anime-description p {
     text-align: left;
     font-size: 14px;
     margin: 0;
+    color: #333; /* Dark text color */
 }
 
 /* Custom Scrollbar Styles */
@@ -109,18 +107,18 @@ body {
 }
 
 .anime-description::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1); /* Semi-transparent track background */
+    background: rgba(0, 0, 0, 0.2); /* Semi-transparent track background */
     border-radius: 10px;
 }
 
 .anime-description::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 165, 0, 0.8); /* Vibrant orange color, semi-transparent */
+    background-color: rgba(255, 177, 51, 0.8); /* Orange thumb color, semi-transparent */
     border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.6); /* White border for better visibility */
+    border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 .anime-description::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 140, 0, 0.8); /* Darker orange on hover */
+    background-color: rgba(255, 177, 51, 1); /* Brighter orange on hover */
 }
 
 .load-more-container {
@@ -128,16 +126,16 @@ body {
 }
 
 .load-more-btn {
-    background-color: #ff9f43; /* Orangey peach button color */
+    background-color: #5dd9c1; /* Teal button color */
     color: #fff;
     border: none;
     border-radius: 20px;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    transition: background-color 0.3s ease;
 }
 
 .load-more-btn:hover {
-    background-color: #ff7f50; /* Darker orangey peach on hover */
+    background-color: #4baea0; /* Darker teal on hover */
 }
