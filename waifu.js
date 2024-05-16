@@ -3,9 +3,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const gallery = document.getElementById('gallery');
     const loadMoreButton = document.getElementById('loadMoreButton');
-    const categorySelect = document.getElementById('category');
+    const categoryButtons = document.querySelectorAll('.categoryButton');
     let imagesLoaded = 0;
-    let currentCategory = categorySelect.value;
+    let currentCategory = 'sfw'; // Default category
 
     const loadImages = async (count) => {
         try {
@@ -26,7 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Load initial 5 images on page load
+    const clearGallery = () => {
+        gallery.innerHTML = '';
+        imagesLoaded = 0;
+    };
+
+    // Load initial images
     loadImages(5);
 
     // Load more images when "More! ❤" button is clicked
@@ -34,12 +39,15 @@ document.addEventListener('DOMContentLoaded', function() {
         loadImages(5);
     });
 
-    // Update current category when selection changes
-    categorySelect.addEventListener('change', function() {
-        imagesLoaded = 0;
-        currentCategory = categorySelect.value;
-        gallery.innerHTML = ''; // Clear existing images
-        loadImages(5); // Load new images for selected category
+    // Event listener for category buttons
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedCategory = this.getAttribute('data-category');
+            if (selectedCategory !== currentCategory) {
+                clearGallery(); // Clear existing images if category changes
+                currentCategory = selectedCategory;
+                loadImages(5); // Load images for the new category
+            }
+        });
     });
 });
-
