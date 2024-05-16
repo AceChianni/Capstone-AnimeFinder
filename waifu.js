@@ -1,4 +1,5 @@
 "use strict";
+
 document.addEventListener('DOMContentLoaded', function() {
     const gallery = document.getElementById('gallery');
     const loadMoreButton = document.getElementById('loadMoreButton');
