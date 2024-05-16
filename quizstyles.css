@@ -7,22 +7,29 @@ body, html {
 
 /* Navigation Bar */
 .navbar {
-    background-color: #5B507A; /* Dark Purple navbar */
-    color: white;
-    padding: 10px 20px;
-}
-
-.navbar nav {
-    display: flex;
-    justify-content: center;
+    background-color: #ae9bff; /* Light purple navbar */
+    overflow: hidden;
+    text-align: center;
+    position: fixed;
+    width: 100%; /* Full width */
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar a {
-    color: white;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: bold; /* Make navigation links bold */
 }
+
+.navbar a:hover {
+    background-color: #9b79ff; /* Darker purple on hover */
+}
+
 
 /* Main Content */
 body {
