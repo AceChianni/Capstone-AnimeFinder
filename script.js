@@ -1,36 +1,42 @@
 "use strict";
+
 document.addEventListener("DOMContentLoaded", function() {
     const animeSlider = document.querySelector(".anime-slider");
 
-    // Function to fetch anime data from Jikan API
-    async function fetchAnimeData() {
+    // Function to fetch trending anime data from Kitsu API
+    async function fetchTrendingAnime() {
         try {
-            const response = await fetch("https://api.jikan.moe/v3/top/anime/1/bypopularity");
+            const response = await fetch("https://kitsu.io/api/edge/trending/anime");
             const data = await response.json();
-            return data.top; // Use the 'top' array from the response
+            return data.data; // Use the 'data' array from the response
         } catch (error) {
-            console.error("Error fetching anime data:", error);
+            console.error("Error fetching trending anime:", error);
             return []; // Return empty array in case of error
         }
     }
 
-    // Function to update the anime slideshow with fetched images
+    // Function to update the anime slideshow with fetched images and titles
     async function updateAnimeSlideshow() {
-        const animeData = await fetchAnimeData();
+        const animeData = await fetchTrendingAnime();
 
         // Clear existing slides
         animeSlider.innerHTML = "";
 
-        // Display fetched images in slideshow (up to 3 images)
-        animeData.slice(0, 3).forEach(anime => {
+        // Display fetched images and titles in slideshow (6 to 10 images)
+        animeData.slice(0, Math.min(animeData.length, 10)).forEach(anime => {
             const slide = document.createElement("div");
             slide.classList.add("slide");
             
             const image = document.createElement("img");
-            image.src = anime.image_url;
-            image.alt = anime.title;
+            image.src = anime.attributes.posterImage.medium; // Use poster image URL
+            image.alt = anime.attributes.canonicalTitle;
+            
+            const title = document.createElement("p");
+            title.textContent = anime.attributes.canonicalTitle;
+            title.classList.add("anime-title");
             
             slide.appendChild(image);
+            slide.appendChild(title);
             animeSlider.appendChild(slide);
         });
 
@@ -65,24 +71,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Initial setup: fetch and update anime slideshow
     updateAnimeSlideshow();
-
-    // Event listener for slideshow controls (if needed)
-    animeSlider.addEventListener("click", function(event) {
-        const slideWidth = animeSlider.offsetWidth;
-        const clickX = event.offsetX;
-
-        if (clickX < slideWidth * 0.3) {
-            // Previous slide logic (if desired)
-            // For example: prevSlide();
-        } else if (clickX > slideWidth * 0.7) {
-            // Next slide logic (if desired)
-            // For example: nextSlide();
-        } else {
-            // Toggle slideshow play/pause logic (if desired)
-            // For example: toggleSlideShow();
-        }
-    });
-});
 
 // document.addEventListener("DOMContentLoaded", function() {
 //     const slides = document.querySelectorAll(".slide");
