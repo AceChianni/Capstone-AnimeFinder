@@ -1,106 +1,143 @@
-/* Define color variables for better maintainability */
-:root {
-    --pink: #FF9BEC;
-    --teal: #5DD9C1;
-    --purple: #5B507A;
-    --light-purple: #AE9BFF;
-    --peach: #FFE1B3;
-}
-
-/* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--peach);
-    color: var(--purple);
+/* Resetting default margin and padding */
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
-.container {
-    max-width: 600px;
-    margin: 40px auto;
+/* Navigation Bar */
+.navbar {
+    background-color: #5B507A; /* Dark Purple navbar */
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Main Content */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #5DD9C1; /* Aqua background */
+}
+
+.quizcontainer {
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
+    background-color: #FFE1B3; /* Light Peach container */
+    border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    text-align: center;
     font-size: 36px;
-    color: var(--pink);
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
+    color: #FF9BEC; /* Light Pink title */
+    text-align: center;
     margin-bottom: 20px;
+    font-family: 'Lobster', cursive; /* Anime-themed custom font for header */
+}
+
+.question {
+    margin-bottom: 30px;
+}
+
+.question p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #5B507A; /* Dark Purple text */
 }
 
 label {
-    font-weight: bold;
-    color: var(--pink);
-    margin-bottom: 5px;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid var(--light-purple);
-    border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
+input[type="radio"] {
+    margin-right: 8px;
 }
 
 button {
-    padding: 12px 20px;
-    font-size: 16px;
-    background-color: var(--pink);
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: #AE9BFF; /* Lavender button */
     color: #fff;
     border: none;
-    border-radius: 50px;
+    border-radius: 50px; /* Round button */
     cursor: pointer;
     transition: background-color 0.3s ease;
-    align-self: center;
-    margin-top: 20px;
-}
-
-button:hover {
-    background-color: var(--teal);
-}
-
-.navbar {
-    background-color: var(--purple);
-    padding: 10px;
-    text-align: center;
-}
-
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-}
-
-/* Custom Styling */
-.container {
     position: relative;
 }
 
-.submit-button {
-    align-self: center;
+button:hover {
+    background-color: #9b86ff; /* Darker shade on hover */
+}
+
+/* Heart-shaped button */
+button::before {
+    content: '\2665'; /* Unicode for heart symbol */
+    display: inline-block;
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%); /* Center vertically */
+    color: white;
+}
+
+#recommendationContainer {
+    margin-top: 40px;
+}
+
+.anime-item {
+    border: 2px solid #FF9BEC; /* Light Pink border for anime items */
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+
+.anime-item h3 {
+    font-size: 24px;
+    color: #5B507A; /* Dark Purple text */
+    margin-bottom: 10px;
+}
+
+.anime-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.anime-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+.anime-item a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #AE9BFF; /* Lavender button */
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.anime-item a:hover {
+    background-color: #9b86ff; /* Darker shade on hover */
 }
