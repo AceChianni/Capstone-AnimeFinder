@@ -62,16 +62,16 @@ main {
 }
 
 button {
-    background-color: #ff6b6b;
+    background-color: #AE9BFF;
     color: white;
     border: none;
     padding: 10px 20px;
     margin-top: 20px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 50px;
 }
 
 button:hover {
-    background-color: #ff4757;
+    background-color: #9b86ff;
 }
