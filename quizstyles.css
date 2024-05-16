@@ -7,43 +7,42 @@ body, html {
 
 /* Navigation Bar */
 .navbar {
-    background-color: #ff6f61; /* Coral pink */
-    padding: 10px;
-    text-align: center;
+    background-color: #5B507A; /* Dark Purple navbar */
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: center;
 }
 
 .navbar a {
-    color: #fff;
+    color: white;
     text-decoration: none;
     margin: 0 10px;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
 }
 
 /* Main Content */
 body {
-    font-family: 'Roboto', sans-serif; /* Anime-themed custom font */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e0f7fa; /* Light blue background */
+    background-color: #5DD9C1; /* Aqua background */
 }
 
 .quizcontainer {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #ffefde; /* Orangey peach container */
+    background-color: #FFE1B3; /* Light Peach container */
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     font-size: 36px;
-    color: #ff6b6b; /* Reddish-pink title */
+    color: #FF9BEC; /* Light Pink title */
     text-align: center;
     margin-bottom: 20px;
     font-family: 'Lobster', cursive; /* Anime-themed custom font for header */
@@ -57,14 +56,14 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #333;
+    color: #5B507A; /* Dark Purple text */
 }
 
 label {
     display: block;
     margin-bottom: 15px;
     font-size: 18px;
-    color: #555;
+    color: #333;
 }
 
 input[type="radio"] {
@@ -74,7 +73,7 @@ input[type="radio"] {
 button {
     padding: 12px 24px;
     font-size: 18px;
-    background-color: #ff6b6b; /* Reddish-pink button */
+    background-color: #AE9BFF; /* Lavender button */
     color: #fff;
     border: none;
     border-radius: 50px; /* Round button */
@@ -84,7 +83,7 @@ button {
 }
 
 button:hover {
-    background-color: #ff4d4d; /* Darker shade on hover */
+    background-color: #9b86ff; /* Darker shade on hover */
 }
 
 /* Heart-shaped button */
@@ -105,7 +104,7 @@ button.reset::before {
 }
 
 .anime-item {
-    border: 2px solid #ff6b6b; /* Reddish-pink border for anime items */
+    border: 2px solid #FF9BEC; /* Light Pink border for anime items */
     padding: 20px;
     margin-bottom: 30px;
     border-radius: 12px;
@@ -113,7 +112,7 @@ button.reset::before {
 
 .anime-item h3 {
     font-size: 24px;
-    color: #333;
+    color: #5B507A; /* Dark Purple text */
     margin-bottom: 10px;
 }
 
@@ -134,12 +133,12 @@ button.reset::before {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #ff6b6b; /* Reddish-pink button */
+    background-color: #AE9BFF; /* Lavender button */
     border-radius: 30px;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
 .anime-item a:hover {
-    background-color: #ff4d4d; /* Darker shade on hover */
+    background-color: #9b86ff; /* Darker shade on hover */
 }
