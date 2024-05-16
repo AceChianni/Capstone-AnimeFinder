@@ -71,6 +71,7 @@ input[type="radio"] {
     margin-right: 8px;
 }
 
+/* Heart-shaped button */
 button {
     position: relative;
     padding: 12px 24px;
@@ -93,21 +94,31 @@ button::before {
     font-size: 24px;
     position: absolute;
     top: 50%;
-    left: 15px;
-    transform: translateY(-50%); /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center both horizontally and vertically */
     color: white;
 }
 
 /* Adjust text padding to avoid overlap with heart icon */
-button.next {
-    padding-left: 40px; /* Increase left padding for next button */
+button.next::before,
+button.reset::before {
+    font-size: 24px; /* Ensure heart size is consistent */
 }
 
+/* Circle-shaped button for heart */
+button.next,
 button.reset {
-    padding-left: 40px; /* Increase left padding for reset button */
+    padding: 0; /* Remove default padding */
+    width: 60px; /* Set fixed width for circle */
+    height: 60px; /* Set fixed height for circle */
+    line-height: 60px; /* Vertically center text (heart icon) */
+    text-align: center; /* Center text horizontally */
+    border-radius: 50%; /* Make button circular */
+    overflow: hidden; /* Hide overflowing content (the heart icon) */
 }
 
 
+/* Recommendations  */
 #recommendationContainer {
     margin-top: 40px;
 }
