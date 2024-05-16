@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="waifustyles.css">
 </head>
 <body>
-          <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="quiz.html">Quiz</a>
@@ -15,10 +15,17 @@
         <a href="contact.html">Contact Us</a>
         <a href="#waifu">Waifu</a>
     </nav>
-        <h1>Waifu Pics Gallery</h1>
+    <h1>Waifu Pics Gallery</h1>
     <main>
+        <div>
+            <label for="category">Select Category:</label>
+            <select id="category">
+                <option value="sfw">SFW</option>
+                <option value="nsfw">NSFW</option>
+            </select>
+            <button id="loadMoreButton">More! ❤</button>
+        </div>
         <div class="gallery" id="gallery"></div>
-    <button type="submit" class="submit-button">More! ❤</button>
     </main>
     <script src="waifu.js"></script>
 </body>
