@@ -1,40 +1,45 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', function() {
     const gallery = document.getElementById('gallery');
-    const loadMoreButton = document.getElementById('loadMore');
-    const apiUrl = 'https://api.waifu.pics/sfw/waifu';
-    let isLoading = false;
+    const loadMoreButton = document.getElementById('loadMoreButton');
+    const categorySelect = document.getElementById('category');
+    let imagesLoaded = 0;
+    let currentCategory = categorySelect.value;
 
-    async function fetchWaifuImage() {
+    const loadImages = async (count) => {
         try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) throw new Error('Network response was not ok');
+            const response = await fetch(`https://api.waifu.pics/${currentCategory}/`);
             const data = await response.json();
-            return data.url;
+            const images = data.files.slice(imagesLoaded, imagesLoaded + count);
+
+            images.forEach(imageUrl => {
+                const image = document.createElement('img');
+                image.src = imageUrl;
+                image.alt = 'Waifu Image';
+                gallery.appendChild(image);
+            });
+
+            imagesLoaded += count;
         } catch (error) {
-            console.error('Fetch error:', error);
+            console.error('Error fetching images:', error);
         }
-    }
+    };
 
-    async function loadImages(count = 6) {
-        if (isLoading) return;
-        isLoading = true;
-        for (let i = 0; i < count; i++) {
-            const imageUrl = await fetchWaifuImage();
-            if (imageUrl) {
-                const imgElement = document.createElement('img');
-                imgElement.src = imageUrl;
-                gallery.appendChild(imgElement);
-            }
-        }
-        isLoading = false;
-    }
+    // Load initial 5 images on page load
+    loadImages(5);
 
-    loadMoreButton.addEventListener('click', () => {
-        loadImages();
+    // Load more images when "More! ❤" button is clicked
+    loadMoreButton.addEventListener('click', function() {
+        loadImages(5);
     });
 
-    // Initial load
-    loadImages();
+    // Update current category when selection changes
+    categorySelect.addEventListener('change', function() {
+        imagesLoaded = 0;
+        currentCategory = categorySelect.value;
+        gallery.innerHTML = ''; // Clear existing images
+        loadImages(5); // Load new images for selected category
+    });
 });
+
