@@ -3,7 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #FFD166; /* Background color */
+    background-color: #FFD166; /* background color */
     color: #eee; /* Light text color */
 }
 
@@ -12,7 +12,6 @@ body, html {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 10px;
 }
 
 /* Navigation Bar */
@@ -20,20 +19,21 @@ body, html {
     background-color: #ae9bff; /* Updated navigation background color */
     padding: 10px;
     text-align: center;
-    width: 100%;
+    width: 100%; 
 }
 
 .navbar a {
     color: #eee; /* Light text color for nav links */
+    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 16px;
-    font-weight: bold;
-    display: inline-block;
+    font-weight: bold
+
 }
 
 .navbar a:hover {
-    background-color: #9b79ff;
+  background-color: #9b79ff; 
     text-decoration: underline;
 }
 
@@ -52,19 +52,16 @@ body, html {
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 20px;
-    flex-wrap: wrap; /* Enable wrapping for smaller screens */
 }
 
 /* Sidebar */
 .sidebar {
-    width: 100%;
-    max-width: 250px;
+    width: 250px;
     background-color: #FF9BEC; /* Updated sidebar background color */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: #fff;
-    margin-bottom: 20px;
 }
 
 .sidebar h2 {
@@ -94,8 +91,6 @@ body, html {
 /* Content Area - Anime Slideshow */
 .content {
     text-align: center;
-    width: calc(100% - 270px); /* Adjust width to fit beside sidebar */
-    max-width: 900px;
 }
 
 .anime-heading {
@@ -108,29 +103,26 @@ body, html {
 .anime-slider {
     display: flex;
     justify-content: center;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    overflow: hidden;
+    width: 400px;
+    height: 600px;
     position: relative;
 }
 
 .slide {
     display: none;
     position: absolute;
-    width: 100%;
 }
 
 .slide img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 8px;
 }
 
 /* Poll */
 .poll {
-    width: 100%;
-    max-width: 250px;
+    width: 250px;
     background-color: #AE9BFF; /* Updated poll background color */
     padding: 20px;
     border-radius: 8px;
@@ -200,44 +192,4 @@ body, html {
 
 .heart-button:hover {
     background-color: #f7ffb3;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column; /* Stack elements vertically */
-    }
-
-    .content {
-        width: 100%; /* Full width for content area */
-        max-width: none;
-    }
-
-    .sidebar, .poll {
-        width: 100%;
-        max-width: none;
-    }
-
-    .anime-slider {
-        max-width: 100%;
-        height: auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar a {
-        display: block;
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .title {
-        font-size: 28px;
-        margin: 10px 0;
-    }
-
-    .anime-heading {
-        font-size: 18px;
-        margin-top: 10px;
-    }
 }
